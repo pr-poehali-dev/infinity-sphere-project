@@ -34,9 +34,9 @@ export function Header() {
       <nav className="container mx-auto px-4 flex items-center justify-between md:px-6">
         <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
           <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-12 md:h-16" />
-          <div className="hidden sm:flex flex-col leading-tight">
-            <span className="text-white text-sm font-medium tracking-wide">Мастерская Современной Мебели</span>
-            <span className="text-white/60 text-xs tracking-wide">г. Новокузнецк</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-white text-[11px] sm:text-sm font-medium tracking-wide leading-tight">Мастерская<br className="sm:hidden" /> Современной Мебели</span>
+            <span className="text-white/60 text-[10px] sm:text-xs tracking-wide">г. Новокузнецк</span>
           </div>
         </a>
 

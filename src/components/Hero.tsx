@@ -130,12 +130,6 @@ export function Hero() {
       <div
         ref={contentRef}
         className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center justify-center text-center"
-        style={{
-          willChange: "transform",
-          transform: "translateY(0px)",
-          perspective: "1000px",
-          transformStyle: "preserve-3d",
-        }}
       >
         <div className="max-w-3xl">
           <h1
