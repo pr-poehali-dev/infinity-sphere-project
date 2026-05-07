@@ -32,8 +32,12 @@ export function Header() {
       )}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
-        <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
+        <a href="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
           <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-20" />
+          <div className="flex flex-col leading-tight">
+            <span className="text-white text-sm font-medium tracking-wide">Мастерская Современной Мебели</span>
+            <span className="text-white/60 text-xs tracking-wide">г. Новокузнецк</span>
+          </div>
         </a>
 
         <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
