@@ -149,7 +149,7 @@ export function Hero() {
           </p>
           <a
             href="#contact"
-            className="inline-block bg-white text-black font-medium text-base px-8 py-4 rounded-none hover:bg-white/90 transition-colors"
+            className="inline-block bg-white text-black font-medium text-base px-8 hover:bg-white/90 transition-colors rounded-[0.25rem] py-2.5 mx-0 my-[50px]"
           >
             Получить расчёт
           </a>
