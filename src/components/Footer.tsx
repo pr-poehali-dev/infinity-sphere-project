@@ -6,7 +6,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="/" className="inline-block mb-6">
-              <img src="/images/hously-logo.svg" alt="Пространство" width={120} height={32} className="w-auto h-6" />
+              <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-16" />
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm">
               Мебель на заказ в Красноярске. Производим кухни, гостиные, спальни и офисные решения — с замером, дизайном и доставкой.
