@@ -122,7 +122,7 @@ export function Hero() {
         <img
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4e367197-3c9e-4e9d-b633-d22b2a3d95a9.png"
           alt="Меблировка квартир под ключ в Кемерово"
-          className="w-full h-full object-cover object-[center_top]"
+          className="w-full h-full object-cover object-[center_60%] md:object-center"
         />
         <div className="absolute inset-0 bg-black/55" />
       </div>
@@ -144,9 +144,15 @@ export function Hero() {
           >
             Меблировка квартир под ключ в Кемерово от 300 000 руб.
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 leading-relaxed">
-            За 30 дней, из любых материалов, с гарантией 3 года по договору.
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8">
+            За 30 дней, из разных по качеству материалов, с гарантией 3 года по договору.
           </p>
+          <a
+            href="#contact"
+            className="inline-block bg-white text-black font-medium text-base px-8 py-4 rounded-none hover:bg-white/90 transition-colors"
+          >
+            Получить расчёт
+          </a>
         </div>
       </div>
 
