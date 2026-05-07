@@ -32,13 +32,35 @@ export function Header() {
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between md:px-6">
-        <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
-          <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-12 md:h-16" />
-          <div className="flex flex-col leading-tight">
-            <span className="text-white text-[11px] sm:text-sm font-medium tracking-wide leading-tight">Мастерская<br className="sm:hidden" /> Современной Мебели</span>
-            <span className="text-white/60 text-[10px] sm:text-xs tracking-wide">г. Новокузнецк</span>
+        <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
+            <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-12 md:h-16" />
+            <div className="flex flex-col leading-tight">
+              <span className="text-white text-[11px] sm:text-sm font-medium tracking-wide leading-tight">Мастерская<br className="sm:hidden" /> Современной Мебели</span>
+              <span className="text-white/60 text-[10px] sm:text-xs tracking-wide">г. Новокузнецк</span>
+            </div>
+          </a>
+          <div className="flex items-center gap-1 ml-1">
+            <a
+              href="https://max.ru/id421714233013_biz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-lg bg-white/10 hover:bg-white/25 transition-colors"
+              title="MAX"
+            >
+              <span className="text-white font-bold text-[10px] md:text-xs leading-none">MAX</span>
+            </a>
+            <a
+              href="https://vk.com/mebel.kuhni.skaf.novokuzneck"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-lg bg-white/10 hover:bg-white/25 transition-colors"
+              title="ВКонтакте"
+            >
+              <span className="text-white font-bold text-[10px] md:text-xs leading-none">ВК</span>
+            </a>
           </div>
-        </a>
+        </div>
 
         <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
           {[
