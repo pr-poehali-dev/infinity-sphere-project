@@ -120,15 +120,16 @@ export function Hero() {
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hously-background.png"
-          alt="Минималистичный архитектурный интерьер"
-          className="w-full h-full object-cover object-center"
+          src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4e367197-3c9e-4e9d-b633-d22b2a3d95a9.png"
+          alt="Меблировка квартир под ключ в Кемерово"
+          className="w-full h-full object-cover object-[center_top]"
         />
+        <div className="absolute inset-0 bg-black/55" />
       </div>
 
       <div
         ref={contentRef}
-        className="container mx-auto px-6 md:px-12 lg:pt-0 relative z-10 pb-0 pl-1 pr-1 pt-8 md:pt-0"
+        className="container mx-auto px-6 md:px-8 relative z-10 flex flex-col items-center justify-center text-center"
         style={{
           willChange: "transform",
           transform: "translateY(0px)",
@@ -136,26 +137,17 @@ export function Hero() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="mb-72 md:mb-60 lg:mb-80">
-          <p className="text-sm tracking-[0.3em] uppercase text-center text-secondary mb-0">{"Мебельная компания"}</p>
-
+        <div className="max-w-3xl">
           <h1
             ref={titleRef}
-            className="text-7xl font-medium text-balance text-center text-white mb-0 tracking-tight leading-[0.9] lg:text-8xl"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white mb-6 tracking-tight leading-[1.1] text-balance"
           >
-            {"Мебель, созданная"}
-            <br />
-            <span className="text-orange-200">{"с душой"}</span>
+            Меблировка квартир под ключ в Кемерово от 300 000 руб.
           </h1>
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed">
+            За 30 дней, из любых материалов, с гарантией 3 года по договору.
+          </p>
         </div>
-      </div>
-
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        <img
-          src="/images/hously-foreground.png"
-          alt="Мраморная кухонная столешница"
-          className="w-full h-full object-cover object-center"
-        />
       </div>
 
       {animationComplete && (
