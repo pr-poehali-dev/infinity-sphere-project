@@ -31,7 +31,7 @@ export function Header() {
           : "bg-transparent py-4 top-0 left-0 right-0",
       )}
     >
-      <nav className="container px-6 flex items-center justify-between md:px-[24] my-0 mx-0">
+      <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
         <a href="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
           <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-16" />
           <div className="flex flex-col leading-tight">

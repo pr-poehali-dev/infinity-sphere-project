@@ -140,7 +140,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <h1
             ref={titleRef}
-            className="sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white mb-6 tracking-tight leading-[1.1] text-balance text-7xl text-center"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white mb-6 tracking-tight leading-[1.1] text-balance"
           >
             Меблировка квартир под ключ в Кемерово от 300 000 руб.
           </h1>
