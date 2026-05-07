@@ -1,30 +1,30 @@
 import { useEffect, useRef, useState } from "react"
-import { Home, Building, Armchair, Trees } from "lucide-react"
+import { Sofa, UtensilsCrossed, BedDouble, Briefcase } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
 
 const expertiseAreas = [
   {
-    title: "Жилая архитектура",
-    description: "Создаем дома, которые сочетают красоту с комфортом, где каждое пространство служит и форме, и функции.",
-    icon: Home,
+    title: "Мягкая мебель",
+    description: "Диваны, кресла, пуфы — создаём комфортные и стильные изделия под любой интерьер. Собственные ткани и кожа, широкий выбор наполнителей.",
+    icon: Sofa,
   },
   {
-    title: "Коммерческие объекты",
+    title: "Кухни на заказ",
     description:
-      "Проектируем рабочие пространства, которые вдохновляют на продуктивность и отражают ценности передовых организаций.",
-    icon: Building,
+      "Проектируем и изготавливаем кухни любой сложности: от классики до минимализма. Фасады, столешницы, встроенная техника — всё под ключ.",
+    icon: UtensilsCrossed,
   },
   {
-    title: "Дизайн интерьеров",
+    title: "Спальные гарнитуры",
     description:
-      "Создаем интерьеры, которые гармонируют с архитектурной оболочкой, формируя целостный пространственный опыт.",
-    icon: Armchair,
+      "Кровати, шкафы-купе, комоды, тумбочки — создаём гармоничные комплекты для спальни, которые служат годами.",
+    icon: BedDouble,
   },
   {
-    title: "Градостроительство",
+    title: "Офисная мебель",
     description:
-      "Формируем сообщества через продуманную интеграцию общественных пространств, зданий и природных элементов.",
-    icon: Trees,
+      "Рабочие места, переговорные, Reception — оснащаем офисы функциональной и представительной мебелью с учётом корпоративного стиля.",
+    icon: Briefcase,
   },
 ]
 
@@ -57,14 +57,14 @@ export function Expertise() {
     <section id="services" ref={sectionRef} className="py-32 md:py-29">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mb-20">
-          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши услуги</p>
+          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Что мы делаем</p>
           <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-            <HighlightedText>Экспертиза</HighlightedText>, отточенная
+            <HighlightedText>Мебель</HighlightedText> для любого
             <br />
-            практикой
+            пространства
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Каждый проект опирается на десятилетия совокупного опыта, создавая архитектуру, которая одновременно инновационна и вневременна.
+            Производим мебель на заказ для квартир, домов и офисов. Каждое изделие — результат опыта, точных замеров и внимания к деталям.
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export function Expertise() {
                     transitionDelay: `${index * 150}ms`,
                   }}
                 >
-                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
+                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1} />
                 </div>
                 <h3 className="text-xl font-medium mb-4">{area.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{area.description}</p>
