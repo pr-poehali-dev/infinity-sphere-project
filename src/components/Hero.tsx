@@ -5,9 +5,11 @@ export function Hero() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4e367197-3c9e-4e9d-b633-d22b2a3d95a9.png"
+          src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/0a9f701f-3fc2-4d93-ab20-594bc637cd54.png"
           alt="Меблировка квартир под ключ в Кемерово"
-          className="w-full h-full object-cover object-[center_60%] md:object-center"
+          className="w-full h-full object-cover object-[center_20%] sm:object-[center_25%] md:object-center"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/55" />
       </div>
