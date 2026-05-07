@@ -129,7 +129,7 @@ export function Hero() {
 
       <div
         ref={contentRef}
-        className="container mx-auto px-6 md:px-8 relative z-10 flex flex-col items-center justify-center text-center"
+        className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center justify-center text-center"
         style={{
           willChange: "transform",
           transform: "translateY(0px)",

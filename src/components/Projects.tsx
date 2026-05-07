@@ -64,8 +64,8 @@ export function Projects() {
   }, [])
 
   return (
-    <section id="projects" className="py-32 md:py-29 bg-secondary/50">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="projects" className="py-20 md:py-29 bg-secondary/50">
+      <div className="container mx-auto px-4 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Избранные работы</p>

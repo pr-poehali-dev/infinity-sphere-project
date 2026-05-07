@@ -48,13 +48,13 @@ export function Philosophy() {
   }, [])
 
   return (
-    <section id="about" className="py-32 md:py-29">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="about" className="py-20 md:py-29">
+      <div className="container mx-auto px-4 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left column - Title and image */}
           <div className="lg:sticky lg:top-32 lg:self-start">
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши принципы</p>
-            <h2 className="text-6xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
+            <h2 className="text-4xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
               Мебель с
               <br />
               <HighlightedText>характером</HighlightedText>
