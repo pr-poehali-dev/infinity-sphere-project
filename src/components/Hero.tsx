@@ -16,7 +16,7 @@ export function Hero() {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center justify-center text-center">
         <div className="max-w-3xl">
-          <h1 className="sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] my-[83px] font-normal text-left text-4xl text-[#dccaab]">
+          <h1 className="sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] my-[83px] font-normal text-left text-[#dccaab] text-3xl">
             Меблировка квартир под ключ в Кемерово от 300 000 руб.
           </h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8">
