@@ -22,6 +22,14 @@ export function Header() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
+  const navLinks = [
+    { label: "Проекты", href: "#projects" },
+    { label: "Услуги", href: "#services" },
+    { label: "Пакеты", href: "#packages" },
+    { label: "Процесс", href: "#process" },
+    { label: "Вопросы", href: "#faq" },
+  ]
+
   return (
     <header
       className={cn(
@@ -32,48 +40,26 @@ export function Header() {
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between md:px-6">
-        <div className="flex items-center gap-2">
-          <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
-            <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-12 md:h-16" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-white text-[11px] sm:text-sm font-medium tracking-wide leading-tight">Мастерская<br className="sm:hidden" /> Современной Мебели</span>
-              <span className="text-white/60 text-[10px] sm:text-xs tracking-wide">г. Новокузнецк</span>
-            </div>
-          </a>
-          <div className="flex items-center gap-1 ml-1">
-            <a
-              href="https://max.ru/id421714233013_biz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-lg bg-white/10 hover:bg-white/25 transition-colors"
-              title="MAX"
-            >
-              <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/bb928b16-dd35-4138-a21d-452681e595a2.png" alt="MAX" width="28" height="28" className="rounded-lg" />
-            </a>
-            <a
-              href="https://vk.com/mebel.kuhni.skaf.novokuzneck"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-lg bg-white/10 hover:bg-white/25 transition-colors"
-              title="ВКонтакте"
-            >
-              <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f8d2866b-194c-48fc-948c-adebdf998eb5.png" alt="ВКонтакте" width="28" height="28" className="rounded-lg" />
-            </a>
+        <a href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0" onClick={scrollToTop}>
+          <img
+            src="https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/61052267-e6c5-4719-949e-d25cac3ec242.png"
+            alt="Мастерская современной мебели"
+            className="h-14 sm:h-[70px] w-auto object-contain"
+          />
+          <div className="flex flex-col leading-tight">
+            <span className="text-white font-semibold text-[10px] sm:text-xs lg:text-base uppercase tracking-wide">
+              Мастерская<br />Современной Мебели
+            </span>
+            <span className="text-white/60 text-[9px] sm:text-[10px] lg:text-xs mt-0.5 tracking-wide">г. Кемерово</span>
           </div>
-        </div>
+        </a>
 
-        <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
-          {[
-            { label: "Главная", href: "#hero" },
-            { label: "О нас", href: "#about" },
-            { label: "Каталог", href: "#projects" },
-            { label: "Услуги", href: "#services" },
-            { label: "Вопросы", href: "#faq" },
-          ].map((item) => (
+        <ul className="hidden lg:flex items-center gap-6 xl:gap-10 text-sm tracking-wide">
+          {navLinks.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-white"
+                className="hover:text-stone-300 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-stone-300 after:transition-all after:duration-300 text-white text-base xl:text-lg"
               >
                 {item.label}
               </a>
@@ -82,19 +68,18 @@ export function Header() {
         </ul>
 
         <a
-          href="#contact"
-          className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300",
-            scrolled
-              ? "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
-              : "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white",
-          )}
+          href="tel:+79132968333"
+          className="hidden lg:inline-flex items-center gap-2 text-sm px-4 xl:px-5 py-2.5 transition-all duration-300 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white shrink-0"
         >
-          Заказать замер
+          +7 913 296-83-33
+        </a>
+
+        <a href="tel:+79132968333" className="hidden sm:flex lg:hidden items-center gap-2 text-white text-sm font-medium shrink-0">
+          +7 913 296-83-33
         </a>
 
         <button
-          className="md:hidden z-50 transition-colors duration-300 text-white"
+          className="lg:hidden z-50 transition-colors duration-300 text-white"
           aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -114,23 +99,17 @@ export function Header() {
 
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "max-h-[600px] opacity-100 mt-8" : "max-h-0 opacity-0",
+          "lg:hidden overflow-hidden transition-all duration-300 ease-in-out",
+          mobileMenuOpen ? "max-h-[600px] opacity-100 mt-6" : "max-h-0 opacity-0",
         )}
       >
         <div className="container mx-auto px-6">
           <ul className="flex flex-col gap-6 mb-8">
-            {[
-              { label: "Главная", href: "#hero" },
-              { label: "О нас", href: "#about" },
-              { label: "Каталог", href: "#projects" },
-              { label: "Услуги", href: "#services" },
-              { label: "Вопросы", href: "#faq" },
-            ].map((item) => (
+            {navLinks.map((item) => (
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-white text-4xl font-light block"
+                  className="hover:text-stone-300 transition-colors duration-300 text-white font-light block text-xl"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
@@ -138,13 +117,12 @@ export function Header() {
               </li>
             ))}
           </ul>
-
           <a
-            href="#contact"
+            href="tel:+79132968333"
             className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300 mb-4"
             onClick={closeMobileMenu}
           >
-            Заказать замер
+            +7 913 296-83-33
           </a>
         </div>
       </div>

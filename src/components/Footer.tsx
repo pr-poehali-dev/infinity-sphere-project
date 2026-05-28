@@ -1,66 +1,65 @@
 export function Footer() {
   return (
-    <footer className="py-12 md:py-24 border-t border-border">
+    <footer className="py-12 md:py-20 border-t border-border">
       <div className="container mx-auto px-4 md:px-12">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <a href="/" className="inline-block mb-6">
-              <img src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8fefa419-df8f-4cf9-874f-e130e35d655c.png" alt="Мастерская современной мебели" className="w-auto h-16" />
+              <img
+                src="https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/61052267-e6c5-4719-949e-d25cac3ec242.png"
+                alt="Мастерская современной мебели"
+                className="h-16 w-auto"
+              />
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm">
-              Мебель на заказ в Красноярске. Производим кухни, гостиные, спальни и офисные решения — с замером, дизайном и доставкой.
+              Кухни на заказ в Кемерово. Проектируем, изготавливаем и монтируем — от замера до последней ручки на фасаде.
             </p>
           </div>
 
-          {/* Navigation */}
           <div>
-            <h4 className="text-sm font-medium mb-4">Компания</h4>
+            <h4 className="text-sm font-medium mb-4">Навигация</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>
-                <a href="#projects" className="hover:text-foreground transition-colors">
-                  Каталог
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-foreground transition-colors">
-                  О нас
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-foreground transition-colors">
-                  Услуги
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-foreground transition-colors">
-                  Контакты
-                </a>
-              </li>
+              {[
+                { label: "Проекты", href: "#projects" },
+                { label: "Услуги", href: "#services" },
+                { label: "Пакеты", href: "#packages" },
+                { label: "Процесс", href: "#process" },
+                { label: "Контакты", href: "#contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="hover:text-foreground transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="text-sm font-medium mb-4">Связь</h4>
+            <h4 className="text-sm font-medium mb-4">Контакты</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:info@master-mebel42.ru" className="hover:text-foreground transition-colors">
-                  info@master-mebel42.ru
+                <a href="tel:+79132968333" className="hover:text-foreground transition-colors">
+                  +7 913 296-83-33
                 </a>
               </li>
               <li>
-                <a href="tel:+73912000000" className="hover:text-foreground transition-colors">
-                  +7 (391) 200-00-00
+                <a
+                  href="https://max.ru/u/f9LHodD0cOL1PbwV-gcwhH0uDPPh7fYs6mEO6mT9skVfTgi3h9x92puP1aU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
+                  MAX
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Телеграм
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
+                <a
+                  href="https://vk.com/mebel.kuhni.skaf.novokuzneck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
                   ВКонтакте
                 </a>
               </li>
@@ -68,15 +67,14 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© 2025 Мастер Мебель. Все права защищены.</p>
+          <p>MSM — Кухни на заказ в Кемерово</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a href="/privacy" className="hover:text-foreground transition-colors">
               Политика конфиденциальности
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Условия использования
+            <a href="/consent" className="hover:text-foreground transition-colors">
+              Согласие на обработку данных
             </a>
           </div>
         </div>

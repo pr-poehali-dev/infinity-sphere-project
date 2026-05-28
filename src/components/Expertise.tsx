@@ -1,22 +1,37 @@
 import { useEffect, useRef, useState } from "react"
-import { Building2, UtensilsCrossed, Palette } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
+import Icon from "@/components/ui/icon"
 
-const expertiseAreas = [
-  {
-    title: "Меблировка квартир в новостройках",
-    description: "Оснащаем квартиры в новостройках под ключ — от замера до расстановки мебели. Учитываем планировку, бюджет и ваши пожелания. Работаем быстро и без лишних согласований.",
-    icon: Building2,
-  },
+const services = [
   {
     title: "Кухни на заказ",
-    description: "Проектируем и изготавливаем кухни любой сложности: от классики до минимализма. Фасады, столешницы, встроенная техника — всё под ключ.",
-    icon: UtensilsCrossed,
+    description: "Проектируем и изготавливаем кухни под размеры вашей квартиры — любая конфигурация, фасады, столешницы, встроенная техника.",
+    icon: "ChefHat",
   },
   {
-    title: "Реализация дизайн-проектов",
-    description: "Воплощаем проекты дизайнеров в жизнь: изготавливаем мебель точно по чертежам и спецификациям. Понимаем язык дизайнеров, соблюдаем сроки и стандарты качества.",
-    icon: Palette,
+    title: "Шкафы и гардеробные",
+    description: "Встроенные шкафы-купе и гардеробные комнаты с умной системой хранения. От эскиза до монтажа.",
+    icon: "Layers",
+  },
+  {
+    title: "Мебель для всей квартиры",
+    description: "Диваны, кровати, столы, стеллажи — комплектуем квартиру целиком, подбирая единый стиль и цветовую гамму.",
+    icon: "Sofa",
+  },
+  {
+    title: "Комплектация техникой",
+    description: "Подбираем бытовую технику ведущих брендов, организуем доставку и подключение всех приборов.",
+    icon: "Zap",
+  },
+  {
+    title: "Дизайн-проект",
+    description: "Разрабатываем реалистичные 3D-визуализации каждого помещения до начала производства, чтобы вы точно видели результат.",
+    icon: "PenTool",
+  },
+  {
+    title: "Авторское сопровождение",
+    description: "Дизайнер ведёт проект от первого замера до финальной приёмки. Один подрядчик — полная ответственность.",
+    icon: "Star",
   },
 ]
 
@@ -51,45 +66,48 @@ export function Expertise() {
         <div className="max-w-3xl mb-12 md:mb-20">
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Что мы делаем</p>
           <h2 className="text-4xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-            <HighlightedText>Мебель</HighlightedText> для любого
+            <HighlightedText>Услуги</HighlightedText> под
             <br />
-            пространства
+            ключ
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Производим мебель на заказ для квартир, домов и офисов. Каждое изделие — результат опыта, точных замеров и внимания к деталям.
+            Один подрядчик — вся квартира. Не нужно искать отдельно кухню, шкафы и диван. Мы делаем всё сами, от дизайна до монтажа.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
-          {expertiseAreas.map((area, index) => {
-            const Icon = area.icon
-            return (
-              <div
-                key={area.title}
-                ref={(el) => {
-                  itemRefs.current[index] = el
-                }}
-                data-index={index}
-                className={`relative pl-8 border-l border-border transition-all duration-700 ${
-                  visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div
-                  className={`transition-all duration-1000 ${
-                    visibleItems.includes(index) ? "animate-draw-stroke" : ""
-                  }`}
-                  style={{
-                    transitionDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1} />
-                </div>
-                <h3 className="text-xl font-medium mb-4">{area.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{area.description}</p>
-              </div>
-            )
-          })}
+          {services.map((area, index) => (
+            <div
+              key={area.title}
+              ref={(el) => { itemRefs.current[index] = el }}
+              data-index={index}
+              className={`relative pl-8 border-l border-border transition-all duration-700 ${
+                visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <Icon name={area.icon} size={40} className="mb-4 text-foreground" />
+              <h3 className="text-xl font-medium mb-4">{area.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{area.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-16">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 bg-foreground text-primary-foreground px-8 py-5 text-sm tracking-widest uppercase font-medium hover:bg-foreground/90 transition-colors duration-300"
+          >
+            Рассчитать стоимость
+          </a>
+          <a
+            href="https://max.ru/id421714233013_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 border border-border px-8 tracking-widest uppercase hover:bg-secondary transition-colors duration-300 text-sm font-extrabold py-5 text-foreground"
+          >
+            Получить концепцию в MAX
+          </a>
         </div>
       </div>
     </section>

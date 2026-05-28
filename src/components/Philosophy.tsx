@@ -3,23 +3,24 @@ import { HighlightedText } from "./HighlightedText"
 
 const philosophyItems = [
   {
-    title: "Качество без компромиссов",
+    title: "Новостройки",
     description:
-      "Используем только проверенные материалы: массив дерева, натуральный шпон, качественная фурнитура. Каждое изделие проходит строгий контроль перед отправкой клиенту.",
+      "Помогаем жильцам новых ЖК въехать в полностью готовую квартиру с красивой кухней. Берём на себя всё — от обмеров до последней ручки на фасаде.",
   },
   {
-    title: "Индивидуальный подход",
+    title: "Семейные квартиры",
     description:
-      "Разрабатываем мебель под конкретное пространство и задачи. Учитываем планировку, стиль интерьера и пожелания заказчика — от эскиза до готового изделия.",
+      "Продумываем пространство с учётом реальной жизни семьи: удобные кухни с большим количеством хранения, качественные фасады, встроенная техника.",
   },
   {
-    title: "Собственное производство",
+    title: "Студии под аренду",
     description:
-      "Всё изготавливаем на своём производстве под Красноярском. Это позволяет контролировать сроки, качество и держать адекватные цены без посредников.",
+      "Создаём стильное и долговечное кухонное оснащение для арендных квартир. Быстро, практично и в рамках бюджета.",
   },
   {
-    title: "Долговечность",
-    description: "Создаём мебель на десятилетия. Продуманные конструкции, надёжные соединения и качественные покрытия — чтобы мебель служила и радовала годами.",
+    title: "Премиальные интерьеры",
+    description:
+      "Индивидуальные дизайнерские решения для тех, кто ценит материалы и детали. Авторские фасады, натуральный камень, нестандартные конфигурации.",
   },
 ]
 
@@ -51,36 +52,33 @@ export function Philosophy() {
     <section id="about" className="py-20 md:py-29">
       <div className="container mx-auto px-4 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left column - Title and image */}
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши принципы</p>
+            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Для кого мы работаем</p>
             <h2 className="text-4xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-              Мебель с
+              Кухня
               <br />
-              <HighlightedText>характером</HighlightedText>
+              <HighlightedText>готова</HighlightedText>
             </h2>
 
             <div className="relative hidden lg:block">
               <img
-                src="/images/exterior.png"
-                alt="Архитектурный эскиз рабочего пространства"
-                className="opacity-90 relative z-10 w-auto"
+                src="https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e7bf0130-f000-4daa-ae72-3b59e91493b4.jpg"
+                alt="Планировка кухни до и после"
+                className="opacity-90 relative z-10 w-full h-auto object-cover rounded"
               />
             </div>
           </div>
 
-          {/* Right column - Description and Philosophy items */}
           <div className="space-y-6 lg:pt-48">
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
-              Мебель — это больше чем предметы в комнате. Это атмосфера, в которой вы живёте каждый день. Мы создаём изделия, которые радуют и служат десятилетиями.
+              Мы работаем с жителями Кемерово, которые хотят красивую функциональную кухню — без бесконечных поездок
+              по магазинам и стресса с подрядчиками.
             </p>
 
             {philosophyItems.map((item, index) => (
               <div
                 key={item.title}
-                ref={(el) => {
-                  itemRefs.current[index] = el
-                }}
+                ref={(el) => { itemRefs.current[index] = el }}
                 data-index={index}
                 className={`transition-all duration-700 ${
                   visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

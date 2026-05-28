@@ -48,7 +48,7 @@ export function CalcBanner() {
 
         {/* Заголовок */}
         <h3 className="text-white font-bold text-center text-base leading-snug mb-1 uppercase">
-          Рассчитайте стоимость<br />+ получите подарок
+          Рассчитайте стоимость<br />кухни + получите подарок
         </h3>
 
         {/* Подпись */}
@@ -58,7 +58,7 @@ export function CalcBanner() {
         <a
           href="#contact"
           onClick={handleClose}
-          className="flex items-center justify-center gap-2 bg-[#970000] hover:bg-[#7a0000] text-white text-sm font-medium py-2.5 px-4 rounded transition-colors w-full"
+          className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm font-medium py-2.5 px-4 rounded transition-colors w-full"
         >
           Начать расчет
           <span className="text-base">↗</span>

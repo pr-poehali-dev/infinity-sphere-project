@@ -4,35 +4,35 @@ import { ArrowUpRight } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "Кухня с островом",
-    category: "Кухни на заказ",
-    location: "Красноярск",
-    year: "2024",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/7afd1844-3eda-4283-9f94-34082f6cbc09.jpg",
+    title: "Кухня в Кедровом бульваре",
+    style: "Современный минимализм",
+    price: "до 650 000 ₽",
+    days: "45 дней",
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e2ae5c44-64a2-4bf8-996a-c8309352e257.png",
   },
   {
     id: 2,
-    title: "Кухня «Бетон»",
-    category: "Кухни на заказ",
-    location: "Красноярск",
-    year: "2024",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/014fd6a0-cd33-4208-9bc8-c90abeb3c103.jpg",
+    title: "Кухня в Лесной Поляне",
+    style: "Скандинавский стиль",
+    price: "до 480 000 ₽",
+    days: "35 дней",
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
   },
   {
     id: 3,
-    title: "Кухня «Мрамор»",
-    category: "Кухни на заказ",
-    location: "Красноярск",
-    year: "2024",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/3c8ffc47-f131-403b-968d-d296cd8b4e39.jpg",
+    title: "Кухня на бульваре Строителей",
+    style: "Неоклассика",
+    price: "750 000 ₽",
+    days: "35 дней",
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png",
   },
   {
     id: 4,
-    title: "Кухня «Дерево»",
-    category: "Кухни на заказ",
-    location: "Красноярск",
-    year: "2024",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/005366de-b051-45fc-91ba-bcbc1baaa8f6.jpg",
+    title: "Кухня-студия под аренду",
+    style: "Лофт",
+    price: "от 320 000 ₽",
+    days: "30 дней",
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
   },
 ]
 
@@ -68,14 +68,14 @@ export function Projects() {
       <div className="container mx-auto px-4 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Избранные работы</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Наши изделия</h2>
+            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Реализованные проекты</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Наши кухни в Кемерово</h2>
           </div>
           <a
-            href="#"
+            href="#contact"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
           >
-            Смотреть весь каталог
+            Обсудить ваш проект
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
@@ -88,9 +88,9 @@ export function Projects() {
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div ref={(el) => (imageRefs.current[index] = el)} className="relative overflow-hidden aspect-[4/3] mb-6">
+              <div ref={(el) => { imageRefs.current[index] = el }} className="relative overflow-hidden aspect-[4/3] mb-6">
                 <img
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image}
                   alt={project.title}
                   className={`w-full h-full object-cover transition-transform duration-700 ${
                     hoveredId === project.id ? "scale-105" : "scale-100"
@@ -103,19 +103,41 @@ export function Projects() {
                     transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
                   }}
                 />
+                <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-white">
+                    <p className="text-sm text-white/70 mb-1">{project.style}</p>
+                    <p className="text-lg font-medium">{project.price}</p>
+                    <p className="text-sm text-white/70">Срок: {project.days}</p>
+                  </div>
+                </div>
               </div>
 
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-xl font-medium mb-2 group-hover:underline underline-offset-4">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm">
-                    {project.category} · {project.location}
-                  </p>
+                  <p className="text-muted-foreground text-sm">{project.style}</p>
                 </div>
-                <span className="text-muted-foreground/60 text-sm">{project.year}</span>
+                <span className="text-muted-foreground/60 text-sm">{project.days}</span>
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-16">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 sm:py-5 text-sm tracking-widest uppercase font-extrabold hover:opacity-90 transition-colors duration-300 bg-[#ffa800] text-foreground"
+          >
+            Рассчитать стоимость
+          </a>
+          <a
+            href="https://max.ru/id421714233013_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 border border-border px-6 sm:px-8 tracking-widest uppercase hover:bg-secondary transition-colors duration-300 text-sm font-extrabold text-foreground py-4 sm:py-5"
+          >
+            Получить концепцию в MAX
+          </a>
         </div>
       </div>
     </section>
