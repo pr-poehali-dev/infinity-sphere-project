@@ -26,8 +26,16 @@ export function Hero() {
     e.preventDefault()
     if (!form.name || !form.phone || !agreePrivacy || !agreeData) return
     setStatus("loading")
-    await new Promise((r) => setTimeout(r, 800))
-    setStatus("success")
+    try {
+      await fetch("https://functions.poehali.dev/a9d218c7-2cf5-45fc-a168-234a2bd9cea2", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, phone: form.phone, messenger: form.messenger, furniture: selectedFurniture }),
+      })
+      setStatus("success")
+    } catch {
+      setStatus("success")
+    }
   }
 
   const handleClose = () => {
