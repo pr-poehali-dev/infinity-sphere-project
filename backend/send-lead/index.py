@@ -1,12 +1,10 @@
 import json
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import urllib.request
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка заявки с сайта на почту msm.nk42@yandex.ru"""
+    """Отправка заявки с сайта в MAX бот"""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {
@@ -33,55 +31,35 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'error': 'Имя и телефон обязательны'})
         }
 
-    email_from = 'msm.nk42@yandex.ru'
-    email_to = 'msm.nk42@yandex.ru'
-    login = 'msm.nk42'
-    password = os.environ['EMAIL_PASSWORD']
+    token = os.environ['MAX_BOT_TOKEN']
+    chat_id = int(os.environ['MAX_CHAT_ID'])
 
     furniture_text = ', '.join(furniture) if furniture else 'не указано'
     messenger_map = {'max': 'MAX', 'telegram': 'Telegram', 'vk': 'ВКонтакте'}
     messenger_text = messenger_map.get(messenger, messenger or 'не указано')
 
-    html = f"""
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #1a1a1a; border-bottom: 2px solid #ffa800; padding-bottom: 10px;">
-        Новая заявка с сайта — Кухни на заказ
-      </h2>
-      <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-        <tr>
-          <td style="padding: 10px; color: #666; width: 40%;">Имя:</td>
-          <td style="padding: 10px; font-weight: bold; color: #1a1a1a;">{name}</td>
-        </tr>
-        <tr style="background: #f9f9f9;">
-          <td style="padding: 10px; color: #666;">Телефон:</td>
-          <td style="padding: 10px; font-weight: bold; color: #1a1a1a;">
-            <a href="tel:{phone}" style="color: #ffa800;">{phone}</a>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; color: #666;">Способ связи:</td>
-          <td style="padding: 10px; font-weight: bold; color: #1a1a1a;">{messenger_text}</td>
-        </tr>
-        <tr style="background: #f9f9f9;">
-          <td style="padding: 10px; color: #666;">Интересует:</td>
-          <td style="padding: 10px; color: #1a1a1a;">{furniture_text}</td>
-        </tr>
-      </table>
-      <p style="margin-top: 24px; color: #999; font-size: 12px;">
-        Заявка отправлена с сайта мастерской современной мебели
-      </p>
-    </div>
-    """
+    text = (
+        f"Новая заявка с сайта!\n\n"
+        f"Имя: {name}\n"
+        f"Телефон: {phone}\n"
+        f"Способ связи: {messenger_text}\n"
+        f"Интересует: {furniture_text}"
+    )
 
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = f'Новая заявка: {name} — {phone}'
-    msg['From'] = email_from
-    msg['To'] = email_to
-    msg.attach(MIMEText(html, 'html', 'utf-8'))
+    url = f"https://botapi.max.ru/messages?access_token={token}"
+    payload = json.dumps({
+        "recipient": {"chat_id": chat_id},
+        "message": {"text": text}
+    }).encode('utf-8')
 
-    with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
-        server.login(login, password)
-        server.sendmail(email_from, email_to, msg.as_string())
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={'Content-Type': 'application/json'},
+        method='POST'
+    )
+    with urllib.request.urlopen(req) as resp:
+        resp.read()
 
     return {
         'statusCode': 200,
