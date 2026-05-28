@@ -1,18 +1,30 @@
 import { useState } from "react"
-import { X } from "lucide-react"
+import { X, ChevronDown } from "lucide-react"
+
+const FURNITURE_OPTIONS = ["Кухня на заказ", "Шкаф-купе", "Гардеробная", "Мебель для спальни", "Мебель для гостиной", "Мебель под ключ"]
 
 export function Hero() {
   const [open, setOpen] = useState(false)
   const [form, setForm] = useState({ name: "", phone: "", messenger: "max" })
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
+  const [selectedFurniture, setSelectedFurniture] = useState<string[]>([])
+  const [furnitureOpen, setFurnitureOpen] = useState(false)
+  const [agreePrivacy, setAgreePrivacy] = useState(false)
+  const [agreeData, setAgreeData] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
+  const toggleFurniture = (item: string) => {
+    setSelectedFurniture((prev) =>
+      prev.includes(item) ? prev.filter((f) => f !== item) : [...prev, item]
+    )
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.phone) return
+    if (!form.name || !form.phone || !agreePrivacy || !agreeData) return
     setStatus("loading")
     await new Promise((r) => setTimeout(r, 800))
     setStatus("success")
@@ -76,80 +88,134 @@ export function Hero() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
           onClick={(e) => e.target === e.currentTarget && handleClose()}
         >
-          <div className="bg-white rounded-lg w-full max-w-md p-8 relative shadow-2xl">
+          <div className="relative bg-background w-full max-w-md p-8 md:p-10 shadow-2xl">
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors"
+              className="absolute top-5 right-5 text-muted-foreground hover:text-foreground transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
             {status === "success" ? (
               <div className="text-center py-6">
-                <p className="text-2xl font-semibold text-gray-800 mb-2">Заявка отправлена!</p>
-                <p className="text-gray-500">Мы свяжемся с вами в ближайшее время.</p>
+                <p className="text-2xl font-semibold mb-2">Заявка отправлена!</p>
+                <p className="text-muted-foreground">Мы свяжемся с вами в ближайшее время.</p>
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">Рассчитать стоимость кухни</h3>
-                <p className="text-gray-500 text-sm mb-6">Заполните форму — ответим в течение 15 минут</p>
+                <p className="text-xs tracking-[0.3em] uppercase mb-2 text-foreground">Предварительный расчет и консультация</p>
+                <h2 className="text-2xl font-medium tracking-tight mb-2 text-foreground">Рассчитать проект</h2>
+                <p className="text-sm leading-relaxed mb-8 text-foreground">Оставьте заявку — свяжемся в течение 15 минут, обсудим ваш проект.</p>
 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Ваше имя *"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-gray-800 placeholder:text-gray-400 outline-none focus:border-[#ffa800] transition-colors text-sm"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Номер телефона *"
-                    value={form.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-gray-800 placeholder:text-gray-400 outline-none focus:border-[#ffa800] transition-colors text-sm"
-                  />
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Дропдаун — что интересует */}
+                  <div className="relative">
+                    <label className="text-xs tracking-widest uppercase block mb-2 text-foreground">Какая мебель вас интересует?</label>
+                    <button
+                      type="button"
+                      onClick={() => setFurnitureOpen(!furnitureOpen)}
+                      className="w-full border border-border bg-transparent px-4 py-3 text-sm text-left flex items-center justify-between hover:border-foreground transition-colors"
+                    >
+                      <span className={selectedFurniture.length ? "text-foreground" : "text-muted-foreground"}>
+                        {selectedFurniture.length ? selectedFurniture.join(", ") : "Выберите один или несколько вариантов"}
+                      </span>
+                      <ChevronDown className={`shrink-0 ml-2 w-4 h-4 transition-transform ${furnitureOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {furnitureOpen && (
+                      <div className="absolute z-20 top-full left-0 right-0 bg-background border border-border shadow-lg">
+                        {FURNITURE_OPTIONS.map((item) => (
+                          <button
+                            key={item}
+                            type="button"
+                            onClick={() => toggleFurniture(item)}
+                            className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors flex items-center gap-2 ${selectedFurniture.includes(item) ? "font-medium text-foreground" : "text-muted-foreground"}`}
+                          >
+                            <span className={`w-4 h-4 border flex-shrink-0 flex items-center justify-center text-xs ${selectedFurniture.includes(item) ? "border-foreground bg-foreground text-primary-foreground" : "border-border"}`}>
+                              {selectedFurniture.includes(item) && "✓"}
+                            </span>
+                            {item}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
 
+                  {/* Имя */}
                   <div>
-                    <p className="text-sm text-gray-500 mb-2">Как с вами связаться?</p>
-                    <div className="flex gap-3">
-                      {[{ value: "max", label: "MAX" }, { value: "vk", label: "ВКонтакте" }].map((opt) => (
-                        <label
+                    <label className="text-xs tracking-widest uppercase block mb-2 text-foreground">Ваше имя</label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Иван"
+                      value={form.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+                    />
+                  </div>
+
+                  {/* Телефон */}
+                  <div>
+                    <label className="text-xs tracking-widest uppercase block mb-2 text-foreground">Телефон</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+7 ___-___-__-__"
+                      value={form.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+                    />
+                  </div>
+
+                  {/* Способ связи */}
+                  <div>
+                    <label className="text-xs tracking-widest uppercase block mb-2 text-foreground">Способ связи</label>
+                    <div className="flex gap-2">
+                      {[{ value: "max", label: "MAX" }, { value: "telegram", label: "Telegram" }].map((opt) => (
+                        <button
                           key={opt.value}
-                          className={`flex-1 flex items-center justify-center border rounded py-2.5 cursor-pointer text-sm font-medium transition-colors ${
+                          type="button"
+                          onClick={() => setForm({ ...form, messenger: opt.value })}
+                          className={`flex-1 py-3 text-sm border transition-colors duration-200 ${
                             form.messenger === opt.value
-                              ? "border-[#ffa800] bg-[#ffa800]/10 text-[#ffa800]"
-                              : "border-gray-200 text-gray-600 hover:border-gray-300"
+                              ? "border-foreground bg-foreground text-primary-foreground"
+                              : "border-border text-foreground hover:border-foreground"
                           }`}
                         >
-                          <input
-                            type="radio"
-                            name="messenger"
-                            value={opt.value}
-                            checked={form.messenger === opt.value}
-                            onChange={handleChange}
-                            className="hidden"
-                          />
                           {opt.label}
-                        </label>
+                        </button>
                       ))}
                     </div>
                   </div>
 
+                  {/* Чекбоксы */}
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={agreePrivacy}
+                      onChange={(e) => setAgreePrivacy(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 shrink-0 accent-foreground cursor-pointer"
+                    />
+                    <span className="text-xs leading-relaxed text-foreground">Я согласен(а) с политикой конфиденциальности</span>
+                  </label>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={agreeData}
+                      onChange={(e) => setAgreeData(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 shrink-0 accent-foreground cursor-pointer"
+                    />
+                    <span className="text-xs leading-relaxed text-foreground">Я согласен(а) на обработку персональных данных</span>
+                  </label>
+
                   <button
                     type="submit"
-                    disabled={status === "loading"}
-                    className="w-full bg-[#ffa800] text-foreground font-medium py-3 rounded hover:bg-amber-500 transition-colors disabled:opacity-60 text-sm mt-1"
+                    disabled={status === "loading" || !agreePrivacy || !agreeData}
+                    className="w-full bg-foreground text-primary-foreground py-4 text-sm tracking-widest uppercase font-medium hover:bg-foreground/90 transition-colors duration-300 mt-2 disabled:opacity-60"
                   >
                     {status === "loading" ? "Отправка..." : "Отправить заявку"}
                   </button>
-                  <p className="text-xs text-gray-400 text-center">
-                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
-                  </p>
                 </form>
               </>
             )}
