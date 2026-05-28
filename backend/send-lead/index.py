@@ -35,6 +35,7 @@ def handler(event: dict, context) -> dict:
 
     email_from = 'msm.nk42@yandex.ru'
     email_to = 'msm.nk42@yandex.ru'
+    login = 'msm.nk42'
     password = os.environ['EMAIL_PASSWORD']
 
     furniture_text = ', '.join(furniture) if furniture else 'не указано'
@@ -79,7 +80,7 @@ def handler(event: dict, context) -> dict:
     msg.attach(MIMEText(html, 'html', 'utf-8'))
 
     with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
-        server.login(email_from, password)
+        server.login(login, password)
         server.sendmail(email_from, email_to, msg.as_string())
 
     return {
