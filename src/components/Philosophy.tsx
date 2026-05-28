@@ -61,11 +61,22 @@ export function Philosophy() {
             </h2>
 
             <div className="relative hidden lg:block">
-              <img
-                src="https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e7bf0130-f000-4daa-ae72-3b59e91493b4.jpg"
-                alt="Планировка кухни до и после"
-                className="opacity-90 relative z-10 w-full h-auto object-cover rounded"
-              />
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative">
+                  <img
+                    src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/1c5d2c6f-23ed-4763-891c-95f02094b164.png"
+                    alt="До — пустое помещение"
+                    className="w-full h-full object-cover rounded aspect-square"
+                  />
+                </div>
+                <div className="relative">
+                  <img
+                    src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/887f3d22-f288-4f04-87ee-33af2854f6a3.png"
+                    alt="После — готовая кухня"
+                    className="w-full h-full object-cover rounded aspect-square"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
