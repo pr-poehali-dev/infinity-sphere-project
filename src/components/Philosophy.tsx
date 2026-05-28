@@ -60,22 +60,22 @@ export function Philosophy() {
               <HighlightedText>готова</HighlightedText>
             </h2>
 
-            <div className="relative hidden lg:block">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="relative">
-                  <img
-                    src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/1c5d2c6f-23ed-4763-891c-95f02094b164.png"
-                    alt="До — пустое помещение"
-                    className="w-full h-full object-cover rounded aspect-square"
-                  />
-                </div>
-                <div className="relative">
-                  <img
-                    src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/887f3d22-f288-4f04-87ee-33af2854f6a3.png"
-                    alt="После — готовая кухня"
-                    className="w-full h-full object-cover rounded aspect-square"
-                  />
-                </div>
+            <div className="grid grid-cols-2 gap-3 mt-6">
+              <div className="relative overflow-hidden rounded">
+                <img
+                  src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/0cb2e1ac-ae81-407f-b437-1218443d02bc.png"
+                  alt="До — пустое помещение"
+                  className="w-full h-full object-cover aspect-square"
+                />
+                <span className="absolute top-2 left-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded">ДО</span>
+              </div>
+              <div className="relative overflow-hidden rounded">
+                <img
+                  src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/789ddcd5-9f6c-47be-912a-71fb1f0d88fa.png"
+                  alt="После — готовая кухня"
+                  className="w-full h-full object-cover aspect-square"
+                />
+                <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded">ПОСЛЕ</span>
               </div>
             </div>
           </div>
