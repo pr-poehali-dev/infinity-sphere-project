@@ -73,7 +73,7 @@ export function FAQ() {
                   openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="text-muted-foreground leading-relaxed pb-6 pr-12">{faq.answer}</p>
+                <p className="leading-relaxed pb-6 pr-12 text-[#000000]">{faq.answer}</p>
               </div>
             </div>
           ))}
