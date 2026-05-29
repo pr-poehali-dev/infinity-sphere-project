@@ -71,9 +71,9 @@ export function Hero() {
             >
               <X className="w-5 h-5" />
             </button>
-            <p className="text-xs tracking-[0.3em] uppercase mb-2 text-foreground">Предварительный расчет и консультация</p>
-            <h2 className="text-2xl font-medium tracking-tight mb-2 text-foreground">Рассчитать проект</h2>
-            <p className="text-sm leading-relaxed mb-8 text-muted-foreground">Оставьте заявку — свяжемся в течение 15 минут, обсудим ваш проект.</p>
+            <p className="text-xs tracking-[0.3em] uppercase mb-2 text-foreground"></p>
+            <h2 className="text-2xl font-medium tracking-tight mb-2 text-foreground"></h2>
+            <p className="text-sm leading-relaxed mb-8 text-muted-foreground"></p>
             <LeadForm onSuccess={handleClose} />
           </div>
         </div>
