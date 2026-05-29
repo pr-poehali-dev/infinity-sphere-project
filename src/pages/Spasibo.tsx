@@ -2,18 +2,22 @@ import { Link } from "react-router-dom"
 
 export default function Spasibo() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-4">
-      <div className="text-center max-w-md bg-[#f89c00]">
-        <div className="w-16 h-16 bg-foreground flex items-center justify-center mx-auto mb-8">
-          <span className="text-primary-foreground text-3xl font-light">✓</span>
+    <main
+      className="min-h-screen flex items-center justify-center px-4 relative"
+      style={{backgroundImage: "url('https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4518ab70-17cf-418a-a793-c475fbfecca2.png')", backgroundSize: "cover", backgroundPosition: "center"}}
+    >
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative z-10 text-center max-w-md">
+        <div className="w-16 h-16 bg-white flex items-center justify-center mx-auto mb-8">
+          <span className="text-foreground text-3xl font-light">✓</span>
         </div>
-        <h1 className="text-3xl font-semibold mb-4 text-foreground">Спасибо за заявку!</h1>
-        <p className="text-muted-foreground text-base leading-relaxed mb-10">
+        <h1 className="text-3xl font-semibold mb-4 text-white">Спасибо за заявку!</h1>
+        <p className="text-white/70 text-base leading-relaxed mb-10">
           Свяжемся с вами в течение 15 минут.
         </p>
         <Link
           to="/"
-          className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-primary-foreground text-sm tracking-widest uppercase font-medium hover:bg-foreground/90 transition-colors duration-300"
+          className="inline-flex items-center justify-center px-8 py-4 bg-[#ffa800] text-foreground text-sm tracking-widest uppercase font-medium hover:bg-amber-500 transition-colors duration-300"
         >
           На главную
         </Link>
