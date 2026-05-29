@@ -58,7 +58,7 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Ваш проект",
+    title: "ЖК Притомский",
     style: "Стиль по вашему выбору",
     price: "под ключ",
     days: "от 30 дней",
