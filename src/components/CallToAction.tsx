@@ -23,7 +23,7 @@ export function CallToAction() {
         </div>
 
         <div className="mt-20 max-w-4xl mx-auto">
-          <p className="text-primary-foreground/50 text-sm tracking-[0.3em] uppercase mb-6 text-center">Адрес офиса</p>
+          <p className="text-primary-foreground/50 text-sm tracking-[0.3em] uppercase mb-6 text-center">АДРЕС ПРОИЗВОДСТВА</p>
           <a
             href="https://yandex.ru/maps/?um=constructor%3Ab312bb11f026022e1a35c07b0fab0211aa512a6267f1099af98a7bb47b4264ac&source=constructorLink"
             target="_blank"
