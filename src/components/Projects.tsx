@@ -74,7 +74,7 @@ const projects: Project[] = [
   },
   {
     id: 8,
-    title: "Ваш проект",
+    title: "ЖК Бульвар",
     style: "Современный минимализм",
     price: "под ключ",
     days: "от 30 дней",
