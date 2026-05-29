@@ -15,24 +15,15 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ca833cae-fc01-465b-a0ef-6a511b4d40d8.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            animation: "heroZoomOut 12s ease-out forwards",
-          }}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ca833cae-fc01-465b-a0ef-6a511b4d40d8.png"
+          alt="Кухни на заказ в Кемерово"
+          className="w-full h-full object-cover object-[70%_center] md:object-center"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
-      <style>{`
-        @keyframes heroZoomOut {
-          from { transform: scale(1.5); }
-          to { transform: scale(1); }
-        }
-      `}</style>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 text-left md:text-center max-w-5xl py-20 sm:py-16 md:py-[66px]">
         <h1 className="text-white leading-[1.1] tracking-tight text-balance pt-10 pb-6 font-thin text-left md:text-center text-4xl sm:text-5xl md:text-6xl">Кухни на заказ в Кемерово.</h1>
