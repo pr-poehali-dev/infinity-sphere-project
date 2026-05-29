@@ -1,7 +1,17 @@
 import { useState, useEffect, useRef } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 
-const projects = [
+type Project = {
+  id: number
+  title: string
+  style: string
+  price: string
+  days: string
+  image?: string
+  images?: string[]
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Кухня в Кедровом бульваре",
@@ -20,11 +30,14 @@ const projects = [
   },
   {
     id: 2,
-    title: "Кухня в Лесной Поляне",
+    title: "МКР Лесная Поляна",
     style: "Скандинавский стиль",
-    price: "до 480 000 ₽",
+    price: "480 000 ₽",
     days: "35 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
+    images: [
+      "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4d36750d-53b0-4c20-b3be-17fed01690a2.png",
+    ],
   },
   {
     id: 3,
@@ -44,8 +57,100 @@ const projects = [
   },
 ]
 
+function getImages(project: Project): string[] {
+  if (project.images && project.images.length > 0) return project.images
+  if (project.image) return [project.image]
+  return []
+}
+
+function ProjectCard({
+  project,
+  revealed,
+  cardRef,
+}: {
+  project: Project
+  revealed: boolean
+  cardRef: (el: HTMLDivElement | null) => void
+}) {
+  const images = getImages(project)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [hovered, setHovered] = useState(false)
+
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentIndex((i) => (i - 1 + images.length) % images.length)
+  }
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentIndex((i) => (i + 1) % images.length)
+  }
+
+  return (
+    <article
+      className="group cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div ref={cardRef} className="relative overflow-hidden aspect-[4/3] mb-6">
+        <img
+          src={images[currentIndex]}
+          alt={project.title}
+          className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
+        />
+        <div
+          className="absolute inset-0 bg-primary origin-top"
+          style={{
+            transform: revealed ? "scaleY(0)" : "scaleY(1)",
+            transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="text-white">
+            <p className="text-sm text-white/70 mb-1">{project.style}</p>
+            <p className="text-lg font-medium">{project.price}</p>
+            <p className="text-sm text-white/70">Срок: {project.days}</p>
+          </div>
+        </div>
+
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setCurrentIndex(i) }}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${i === currentIndex ? "bg-white scale-125" : "bg-white/50"}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="text-xl font-medium mb-2 group-hover:underline underline-offset-4">{project.title}</h3>
+          <p className="text-muted-foreground text-sm">{project.style}</p>
+        </div>
+        <span className="text-muted-foreground/60 text-sm">{project.days}</span>
+      </div>
+    </article>
+  )
+}
+
 export function Projects() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null)
   const [revealedImages, setRevealedImages] = useState<Set<number>>(new Set())
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -90,44 +195,12 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
-            <article
+            <ProjectCard
               key={project.id}
-              className="group cursor-pointer"
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div ref={(el) => { imageRefs.current[index] = el }} className="relative overflow-hidden aspect-[4/3] mb-6">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className={`w-full h-full object-cover transition-transform duration-700 ${
-                    hoveredId === project.id ? "scale-105" : "scale-100"
-                  }`}
-                />
-                <div
-                  className="absolute inset-0 bg-primary origin-top"
-                  style={{
-                    transform: revealedImages.has(project.id) ? "scaleY(0)" : "scaleY(1)",
-                    transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-white">
-                    <p className="text-sm text-white/70 mb-1">{project.style}</p>
-                    <p className="text-lg font-medium">{project.price}</p>
-                    <p className="text-sm text-white/70">Срок: {project.days}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-medium mb-2 group-hover:underline underline-offset-4">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm">{project.style}</p>
-                </div>
-                <span className="text-muted-foreground/60 text-sm">{project.days}</span>
-              </div>
-            </article>
+              project={project}
+              revealed={revealedImages.has(project.id)}
+              cardRef={(el) => { imageRefs.current[index] = el }}
+            />
           ))}
         </div>
 
