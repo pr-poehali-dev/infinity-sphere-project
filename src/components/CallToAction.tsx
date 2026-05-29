@@ -21,6 +21,27 @@ export function CallToAction() {
             Бесплатная консультация · Выезд на замер · Без обязательств
           </p>
         </div>
+
+        <div className="mt-20 max-w-4xl mx-auto">
+          <p className="text-primary-foreground/50 text-sm tracking-[0.3em] uppercase mb-6 text-center">Адрес офиса</p>
+          <a
+            href="https://yandex.ru/maps/?um=constructor%3Ab312bb11f026022e1a35c07b0fab0211aa512a6267f1099af98a7bb47b4264ac&source=constructorLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-center text-primary-foreground/60 hover:text-primary-foreground text-sm mb-6 underline underline-offset-4 transition-colors"
+          >
+            Посмотреть расположение
+          </a>
+          <div className="rounded-2xl overflow-hidden">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=98525116013"
+              width="100%"
+              height="400"
+              frameBorder="0"
+              title="Адрес офиса"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )
