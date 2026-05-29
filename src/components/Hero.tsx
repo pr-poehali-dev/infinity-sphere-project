@@ -11,6 +11,7 @@ export function Hero() {
   const [furnitureOpen, setFurnitureOpen] = useState(false)
   const [agreePrivacy, setAgreePrivacy] = useState(false)
   const [agreeData, setAgreeData] = useState(false)
+  const [showConsentError, setShowConsentError] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -24,7 +25,11 @@ export function Hero() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.phone || !agreePrivacy || !agreeData) return
+    if (!agreePrivacy || !agreeData) {
+      setShowConsentError(true)
+      return
+    }
+    if (!form.name || !form.phone) return
     setStatus("loading")
     try {
       await fetch("https://functions.poehali.dev/a9d218c7-2cf5-45fc-a168-234a2bd9cea2", {
@@ -198,28 +203,33 @@ export function Hero() {
                   </div>
 
                   {/* Чекбоксы */}
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={agreePrivacy}
-                      onChange={(e) => setAgreePrivacy(e.target.checked)}
-                      className="mt-0.5 w-4 h-4 shrink-0 accent-foreground cursor-pointer"
-                    />
-                    <span className="text-xs leading-relaxed text-foreground">Я согласен(а) с политикой конфиденциальности</span>
-                  </label>
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={agreeData}
-                      onChange={(e) => setAgreeData(e.target.checked)}
-                      className="mt-0.5 w-4 h-4 shrink-0 accent-foreground cursor-pointer"
-                    />
-                    <span className="text-xs leading-relaxed text-foreground">Я согласен(а) на обработку персональных данных</span>
-                  </label>
+                  <div className="space-y-2">
+                    <label className={`flex items-start gap-3 cursor-pointer rounded px-2 py-1 transition-colors ${showConsentError && !agreePrivacy ? "bg-red-500/10 outline outline-1 outline-red-500" : ""}`}>
+                      <input
+                        type="checkbox"
+                        checked={agreePrivacy}
+                        onChange={(e) => { setAgreePrivacy(e.target.checked); setShowConsentError(false) }}
+                        className="mt-0.5 w-4 h-4 shrink-0 accent-foreground cursor-pointer"
+                      />
+                      <span className="text-xs leading-relaxed text-foreground">Я согласен(а) с политикой конфиденциальности</span>
+                    </label>
+                    <label className={`flex items-start gap-3 cursor-pointer rounded px-2 py-1 transition-colors ${showConsentError && !agreeData ? "bg-red-500/10 outline outline-1 outline-red-500" : ""}`}>
+                      <input
+                        type="checkbox"
+                        checked={agreeData}
+                        onChange={(e) => { setAgreeData(e.target.checked); setShowConsentError(false) }}
+                        className="mt-0.5 w-4 h-4 shrink-0 accent-foreground cursor-pointer"
+                      />
+                      <span className="text-xs leading-relaxed text-foreground">Я согласен(а) на обработку персональных данных</span>
+                    </label>
+                    {showConsentError && (
+                      <p className="text-xs text-red-500 pt-1">Пожалуйста, заполните все обязательные поля</p>
+                    )}
+                  </div>
 
                   <button
                     type="submit"
-                    disabled={status === "loading" || !agreePrivacy || !agreeData}
+                    disabled={status === "loading"}
                     className="w-full bg-foreground text-primary-foreground py-4 text-sm tracking-widest uppercase font-medium hover:bg-foreground/90 transition-colors duration-300 mt-2 disabled:opacity-60"
                   >
                     {status === "loading" ? "Отправка..." : "Отправить заявку"}
