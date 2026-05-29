@@ -41,8 +41,9 @@ def send_max(text: str):
     req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     try:
         urllib.request.urlopen(req, timeout=5)
-    except Exception:
-        pass
+        print("MAX OK")
+    except Exception as e:
+        print(f"MAX ERROR: {e}")
 
 
 def handler(event: dict, context) -> dict:
