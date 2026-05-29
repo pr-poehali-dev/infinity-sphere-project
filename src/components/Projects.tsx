@@ -7,7 +7,8 @@ type Project = {
   style: string
   price: string
   days: string
-  images: string[]
+  image?: string
+  images?: string[]
 }
 
 const projects: Project[] = [
@@ -17,7 +18,7 @@ const projects: Project[] = [
     style: "Современный минимализм",
     price: "до 650 000 ₽",
     days: "45 дней",
-    images: ["https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e2ae5c44-64a2-4bf8-996a-c8309352e257.png"],
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e2ae5c44-64a2-4bf8-996a-c8309352e257.png",
   },
   {
     id: 5,
@@ -25,7 +26,7 @@ const projects: Project[] = [
     style: "Современный минимализм",
     price: "380 000 ₽",
     days: "40 дней",
-    images: ["https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png"],
+    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png",
   },
   {
     id: 2,
@@ -35,7 +36,7 @@ const projects: Project[] = [
     days: "35 дней",
     images: [
       "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
-      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f2e67263-11c6-4d2e-b141-3f3a0e7a2d88.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4d36750d-53b0-4c20-b3be-17fed01690a2.png",
     ],
   },
   {
@@ -44,7 +45,7 @@ const projects: Project[] = [
     style: "Неоклассика",
     price: "300 000 ₽",
     days: "35 дней",
-    images: ["https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png"],
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png",
   },
   {
     id: 4,
@@ -52,9 +53,15 @@ const projects: Project[] = [
     style: "Лофт",
     price: "от 320 000 ₽",
     days: "30 дней",
-    images: ["https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png"],
+    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
   },
 ]
+
+function getImages(project: Project): string[] {
+  if (project.images && project.images.length > 0) return project.images
+  if (project.image) return [project.image]
+  return []
+}
 
 function ProjectCard({
   project,
@@ -65,16 +72,17 @@ function ProjectCard({
   revealed: boolean
   cardRef: (el: HTMLDivElement | null) => void
 }) {
+  const images = getImages(project)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [hovered, setHovered] = useState(false)
 
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation()
-    setCurrentIndex((i) => (i - 1 + project.images.length) % project.images.length)
+    setCurrentIndex((i) => (i - 1 + images.length) % images.length)
   }
   const next = (e: React.MouseEvent) => {
     e.stopPropagation()
-    setCurrentIndex((i) => (i + 1) % project.images.length)
+    setCurrentIndex((i) => (i + 1) % images.length)
   }
 
   return (
@@ -85,7 +93,7 @@ function ProjectCard({
     >
       <div ref={cardRef} className="relative overflow-hidden aspect-[4/3] mb-6">
         <img
-          src={project.images[currentIndex]}
+          src={images[currentIndex]}
           alt={project.title}
           className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
         />
@@ -104,7 +112,7 @@ function ProjectCard({
           </div>
         </div>
 
-        {project.images.length > 1 && (
+        {images.length > 1 && (
           <>
             <button
               onClick={prev}
@@ -119,7 +127,7 @@ function ProjectCard({
               <ChevronRight className="w-4 h-4" />
             </button>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-              {project.images.map((_, i) => (
+              {images.map((_, i) => (
                 <button
                   key={i}
                   onClick={(e) => { e.stopPropagation(); setCurrentIndex(i) }}
