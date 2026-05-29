@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { ChevronDown } from "lucide-react"
 
 const FURNITURE_OPTIONS = ["Кухня на заказ", "Шкаф-купе", "Гардеробная", "Мебель для спальни", "Мебель для гостиной", "Мебель под ключ"]
@@ -9,6 +10,7 @@ interface LeadFormProps {
 }
 
 export function LeadForm({ onSuccess, dark = false }: LeadFormProps) {
+  const navigate = useNavigate()
   const [form, setForm] = useState({ name: "", phone: "", messenger: "max" })
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
   const [selectedFurniture, setSelectedFurniture] = useState<string[]>([])
@@ -51,9 +53,11 @@ export function LeadForm({ onSuccess, dark = false }: LeadFormProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: form.name, phone: form.phone, contact_method: form.messenger, furniture: selectedFurniture }),
       })
-      setStatus("success")
+      navigate("/spasibo")
+      onSuccess?.()
     } catch {
-      setStatus("success")
+      navigate("/spasibo")
+      onSuccess?.()
     }
   }
 
