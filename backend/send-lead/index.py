@@ -8,14 +8,14 @@ import psycopg2
 
 
 def send_email(name: str, phone: str, contact_method: str, furniture: str):
-    password = os.environ.get('GMAIL_APP_PASSWORD', '')
+    password = os.environ.get('EMAIL_PASSWORD', '')
     if not password:
         return
-    gmail = 'sayapingood1985@gmail.com'
+    email = 'msm.nk42@yandex.ru'
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f'Новая заявка с сайта: {name}'
-    msg['From'] = gmail
-    msg['To'] = 'msm.nk42@yandex.ru'
+    msg['From'] = email
+    msg['To'] = email
     html = f"""
     <div style="font-family:Arial,sans-serif;max-width:500px;padding:24px;border:1px solid #e5e5e5">
       <h2 style="margin:0 0 16px;font-size:20px">Новая заявка с сайта</h2>
@@ -26,18 +26,18 @@ def send_email(name: str, phone: str, contact_method: str, furniture: str):
     </div>
     """
     msg.attach(MIMEText(html, 'html'))
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login(gmail, password)
-        server.sendmail(gmail, 'msm.nk42@yandex.ru', msg.as_string())
+    with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
+        server.login('msm.nk42', password)
+        server.sendmail(email, email, msg.as_string())
 
 
-def send_telegram(text: str):
-    token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '')
+def send_max(text: str):
+    token = os.environ.get('MAX_BOT_TOKEN', '')
+    chat_id = os.environ.get('MAX_CHAT_ID', '')
     if not token or not chat_id:
         return
-    url = f'https://api.telegram.org/bot{token}/sendMessage'
-    data = json.dumps({'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML'}).encode()
+    url = f'https://botapi.max.ru/messages?access_token={token}'
+    data = json.dumps({'recipient': {'chat_id': int(chat_id)}, 'message': {'text': text}}).encode()
     req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     try:
         urllib.request.urlopen(req, timeout=5)
@@ -75,7 +75,11 @@ def handler(event: dict, context) -> dict:
     name = body.get('name', '').strip()
     phone = body.get('phone', '').strip()
     contact_method = body.get('contact_method', '').strip()
-    furniture = body.get('furniture', '').strip()
+    furniture_raw = body.get('furniture', '')
+    if isinstance(furniture_raw, list):
+        furniture = ', '.join(furniture_raw)
+    else:
+        furniture = str(furniture_raw).strip()
 
     if not name or not phone:
         cur.close()
@@ -97,12 +101,12 @@ def handler(event: dict, context) -> dict:
     except Exception as e:
         print(f"EMAIL ERROR: {e}")
 
-    send_telegram(
-        f"🔔 <b>Новая заявка с сайта!</b>\n\n"
-        f"👤 Имя: {name}\n"
-        f"📞 Телефон: {phone}\n"
-        f"🛋 Мебель: {furniture or 'не указано'}\n"
-        f"💬 Связь: {contact_method or 'не указано'}"
+    send_max(
+        f"Новая заявка с сайта!\n\n"
+        f"Имя: {name}\n"
+        f"Телефон: {phone}\n"
+        f"Мебель: {furniture or 'не указано'}\n"
+        f"Связь: {contact_method or 'не указано'}"
     )
 
     return {'statusCode': 200, 'headers': cors, 'body': json.dumps({'ok': True, 'id': lead_id})}
