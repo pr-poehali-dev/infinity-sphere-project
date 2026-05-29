@@ -94,12 +94,12 @@ export function Expertise() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-16">
-          <a
-            href="#contact"
+          <button
+            onClick={() => window.dispatchEvent(new Event("open-lead-form"))}
             className="inline-flex items-center justify-center gap-2 bg-foreground text-primary-foreground px-8 py-5 text-sm tracking-widest uppercase font-medium hover:bg-foreground/90 transition-colors duration-300"
           >
             Рассчитать стоимость
-          </a>
+          </button>
           <a
             href="https://max.ru/id421714233013_bot"
             target="_blank"
