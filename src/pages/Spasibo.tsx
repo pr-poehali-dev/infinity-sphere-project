@@ -2,10 +2,16 @@ import { Link } from "react-router-dom"
 
 export default function Spasibo() {
   return (
-    <main
-      className="min-h-screen flex items-center justify-center px-4 relative"
-      style={{backgroundImage: "url('https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4518ab70-17cf-418a-a793-c475fbfecca2.png')", backgroundSize: "cover", backgroundPosition: "center"}}
-    >
+    <main className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4518ab70-17cf-418a-a793-c475fbfecca2.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          animation: "zoomOut 10s ease-out forwards",
+        }}
+      />
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 text-center max-w-md">
         <div className="w-16 h-16 bg-white flex items-center justify-center mx-auto mb-8">
@@ -22,6 +28,12 @@ export default function Spasibo() {
           На главную
         </Link>
       </div>
+      <style>{`
+        @keyframes zoomOut {
+          from { transform: scale(1.2); }
+          to { transform: scale(1); }
+        }
+      `}</style>
     </main>
   )
 }
