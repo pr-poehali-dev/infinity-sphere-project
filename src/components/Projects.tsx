@@ -78,7 +78,7 @@ const projects: Project[] = [
     style: "Стиль по вашему выбору",
     price: "под ключ",
     days: "от 30 дней",
-    image: "",
+    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/9f89ab7d-44be-4af7-a5b8-3d89ea54f698.png",
   },
 ]
 
