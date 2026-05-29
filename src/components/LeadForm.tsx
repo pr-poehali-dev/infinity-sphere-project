@@ -52,18 +52,19 @@ export function LeadForm({ onSuccess, dark = false }: LeadFormProps) {
         body: JSON.stringify({ name: form.name, phone: form.phone, contact_method: form.messenger, furniture: selectedFurniture }),
       })
       setStatus("success")
-      onSuccess?.()
     } catch {
       setStatus("success")
-      onSuccess?.()
     }
   }
 
   if (status === "success") {
     return (
-      <div className="text-center py-6">
-        <p className={`text-2xl font-semibold mb-2 ${text}`}>Заявка отправлена!</p>
-        <p className={textMuted}>Мы свяжемся с вами в ближайшее время.</p>
+      <div className="text-center py-8">
+        <div className="w-14 h-14 bg-foreground flex items-center justify-center mx-auto mb-6">
+          <span className="text-primary-foreground text-2xl font-light">✓</span>
+        </div>
+        <p className={`text-2xl font-semibold mb-3 ${text}`}>Спасибо за заявку!</p>
+        <p className={`text-sm leading-relaxed ${textMuted}`}>Свяжемся с вами в течение 15 минут.</p>
       </div>
     )
   }
