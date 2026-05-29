@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function Spasibo() {
   return (
     <main className="min-h-screen flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
+      <div className="text-center max-w-md bg-[#f89c00]">
         <div className="w-16 h-16 bg-foreground flex items-center justify-center mx-auto mb-8">
           <span className="text-primary-foreground text-3xl font-light">✓</span>
         </div>
