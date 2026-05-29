@@ -13,7 +13,7 @@ const Consent = () => {
     <div className="min-h-screen flex flex-col">
       <main className="flex-1 container max-w-4xl mx-auto px-4 py-12">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => { navigate("/"); window.scrollTo(0, 0); }}
           className="text-sm text-muted-foreground hover:text-foreground mb-8 flex items-center gap-2 transition-colors"
         >
           ← Назад
