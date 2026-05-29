@@ -1,14 +1,23 @@
 import { useState, useEffect, useRef } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 
-const projects = [
+type Project = {
+  id: number
+  title: string
+  style: string
+  price: string
+  days: string
+  images: string[]
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Кухня в Кедровом бульваре",
     style: "Современный минимализм",
     price: "до 650 000 ₽",
     days: "45 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e2ae5c44-64a2-4bf8-996a-c8309352e257.png",
+    images: ["https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e2ae5c44-64a2-4bf8-996a-c8309352e257.png"],
   },
   {
     id: 5,
@@ -16,15 +25,18 @@ const projects = [
     style: "Современный минимализм",
     price: "380 000 ₽",
     days: "40 дней",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png",
+    images: ["https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png"],
   },
   {
     id: 2,
-    title: "Кухня в Лесной Поляне",
+    title: "МКР Лесная Поляна",
     style: "Скандинавский стиль",
-    price: "до 480 000 ₽",
+    price: "480 000 ₽",
     days: "35 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
+    images: [
+      "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f2e67263-11c6-4d2e-b141-3f3a0e7a2d88.png",
+    ],
   },
   {
     id: 3,
@@ -32,7 +44,7 @@ const projects = [
     style: "Неоклассика",
     price: "300 000 ₽",
     days: "35 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png",
+    images: ["https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png"],
   },
   {
     id: 4,
@@ -40,12 +52,97 @@ const projects = [
     style: "Лофт",
     price: "от 320 000 ₽",
     days: "30 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
+    images: ["https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png"],
   },
 ]
 
+function ProjectCard({
+  project,
+  revealed,
+  cardRef,
+}: {
+  project: Project
+  revealed: boolean
+  cardRef: (el: HTMLDivElement | null) => void
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [hovered, setHovered] = useState(false)
+
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentIndex((i) => (i - 1 + project.images.length) % project.images.length)
+  }
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentIndex((i) => (i + 1) % project.images.length)
+  }
+
+  return (
+    <article
+      className="group cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div ref={cardRef} className="relative overflow-hidden aspect-[4/3] mb-6">
+        <img
+          src={project.images[currentIndex]}
+          alt={project.title}
+          className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
+        />
+        <div
+          className="absolute inset-0 bg-primary origin-top"
+          style={{
+            transform: revealed ? "scaleY(0)" : "scaleY(1)",
+            transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="text-white">
+            <p className="text-sm text-white/70 mb-1">{project.style}</p>
+            <p className="text-lg font-medium">{project.price}</p>
+            <p className="text-sm text-white/70">Срок: {project.days}</p>
+          </div>
+        </div>
+
+        {project.images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+              {project.images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setCurrentIndex(i) }}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${i === currentIndex ? "bg-white scale-125" : "bg-white/50"}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="text-xl font-medium mb-2 group-hover:underline underline-offset-4">{project.title}</h3>
+          <p className="text-muted-foreground text-sm">{project.style}</p>
+        </div>
+        <span className="text-muted-foreground/60 text-sm">{project.days}</span>
+      </div>
+    </article>
+  )
+}
+
 export function Projects() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null)
   const [revealedImages, setRevealedImages] = useState<Set<number>>(new Set())
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -90,44 +187,12 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
-            <article
+            <ProjectCard
               key={project.id}
-              className="group cursor-pointer"
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div ref={(el) => { imageRefs.current[index] = el }} className="relative overflow-hidden aspect-[4/3] mb-6">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className={`w-full h-full object-cover transition-transform duration-700 ${
-                    hoveredId === project.id ? "scale-105" : "scale-100"
-                  }`}
-                />
-                <div
-                  className="absolute inset-0 bg-primary origin-top"
-                  style={{
-                    transform: revealedImages.has(project.id) ? "scaleY(0)" : "scaleY(1)",
-                    transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-white">
-                    <p className="text-sm text-white/70 mb-1">{project.style}</p>
-                    <p className="text-lg font-medium">{project.price}</p>
-                    <p className="text-sm text-white/70">Срок: {project.days}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-medium mb-2 group-hover:underline underline-offset-4">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm">{project.style}</p>
-                </div>
-                <span className="text-muted-foreground/60 text-sm">{project.days}</span>
-              </div>
-            </article>
+              project={project}
+              revealed={revealedImages.has(project.id)}
+              cardRef={(el) => { imageRefs.current[index] = el }}
+            />
           ))}
         </div>
 
