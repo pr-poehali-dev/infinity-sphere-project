@@ -30,7 +30,7 @@ const projects = [
     id: 3,
     title: "Кухня на бульваре Строителей",
     style: "Неоклассика",
-    price: "750 000 ₽",
+    price: "300 000 ₽",
     days: "35 дней",
     image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png",
   },
