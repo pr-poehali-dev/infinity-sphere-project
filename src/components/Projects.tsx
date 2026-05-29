@@ -11,6 +11,14 @@ const projects = [
     image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/e2ae5c44-64a2-4bf8-996a-c8309352e257.png",
   },
   {
+    id: 5,
+    title: "ЖК Томь",
+    style: "Современный минимализм",
+    price: "380 000 ₽",
+    days: "40 дней",
+    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png",
+  },
+  {
     id: 2,
     title: "Кухня в Лесной Поляне",
     style: "Скандинавский стиль",
