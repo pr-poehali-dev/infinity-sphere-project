@@ -21,7 +21,7 @@ export function Hero() {
           style={{
             backgroundImage: "url('https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ca833cae-fc01-465b-a0ef-6a511b4d40d8.png')",
             backgroundSize: "cover",
-            backgroundPosition: "70% center",
+            backgroundPosition: "center",
             animation: "heroZoomOut 12s ease-out forwards",
           }}
         />
