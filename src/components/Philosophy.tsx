@@ -67,7 +67,7 @@ export function Philosophy() {
                   alt="До — пустое помещение"
                   className="w-full h-full object-cover aspect-square"
                 />
-                <span className="absolute top-2 left-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded">ДО</span>
+                <span className="absolute top-2 left-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded"></span>
               </div>
               <div className="relative overflow-hidden rounded">
                 <img
@@ -75,7 +75,7 @@ export function Philosophy() {
                   alt="После — готовая кухня"
                   className="w-full h-full object-cover aspect-square"
                 />
-                <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded">ПОСЛЕ</span>
+                <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded"></span>
               </div>
             </div>
           </div>
