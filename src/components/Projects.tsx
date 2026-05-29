@@ -52,7 +52,7 @@ const projects: Project[] = [
     id: 4,
     title: "ЖК Бизнес класса",
     style: "Лофт",
-    price: "от 320 000 ₽",
+    price: "от 355 000 ₽",
     days: "30 дней",
     image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
   },
