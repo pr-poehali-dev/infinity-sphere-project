@@ -27,7 +27,7 @@ def send_email(name: str, phone: str, contact_method: str, furniture: str):
     """
     msg.attach(MIMEText(html, 'html'))
     with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
-        server.login('msm.nk42', password)
+        server.login('msm.nk42@yandex.ru', password)
         server.sendmail(email, email, msg.as_string())
 
 
