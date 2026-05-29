@@ -55,6 +55,30 @@ const projects: Project[] = [
     days: "30 дней",
     image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
   },
+  {
+    id: 6,
+    title: "Ваш проект",
+    style: "Стиль по вашему выбору",
+    price: "под ключ",
+    days: "от 30 дней",
+    image: "",
+  },
+  {
+    id: 7,
+    title: "Ваш проект",
+    style: "Стиль по вашему выбору",
+    price: "под ключ",
+    days: "от 30 дней",
+    image: "",
+  },
+  {
+    id: 8,
+    title: "Ваш проект",
+    style: "Стиль по вашему выбору",
+    price: "под ключ",
+    days: "от 30 дней",
+    image: "",
+  },
 ]
 
 function getImages(project: Project): string[] {
@@ -92,11 +116,18 @@ function ProjectCard({
       onMouseLeave={() => setHovered(false)}
     >
       <div ref={cardRef} className="relative overflow-hidden aspect-[4/3] mb-6">
-        <img
-          src={images[currentIndex]}
-          alt={project.title}
-          className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
-        />
+        {images.length > 0 ? (
+          <img
+            src={images[currentIndex]}
+            alt={project.title}
+            className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
+          />
+        ) : (
+          <div className="w-full h-full bg-secondary flex flex-col items-center justify-center gap-3 border-2 border-dashed border-border">
+            <span className="text-4xl">📸</span>
+            <p className="text-muted-foreground text-sm">Фото скоро появится</p>
+          </div>
+        )}
         <div
           className="absolute inset-0 bg-primary origin-top"
           style={{
