@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 const Privacy = () => {
@@ -12,7 +11,6 @@ const Privacy = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1 container max-w-4xl mx-auto px-4 py-12">
         <button
           onClick={() => navigate(-1)}
