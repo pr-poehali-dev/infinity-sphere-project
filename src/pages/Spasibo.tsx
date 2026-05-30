@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
 export default function Spasibo() {
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ym = (window as any).ym
+    if (typeof ym === "function") {
+      ym(109491748, "reachGoal", "spasibo")
+    }
+  }, [])
+
   return (
     <main className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
       <div
