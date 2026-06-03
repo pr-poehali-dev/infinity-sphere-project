@@ -61,7 +61,13 @@ const projects: Project[] = [
     style: "Неоклассика",
     price: "300 000 ₽",
     days: "35 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png",
+    images: [
+      "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/06057cfc-bd55-4854-99e8-5f6ede0ac743.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/65c3401d-cf88-48ed-8f47-2947c0cef0cb.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/a509c479-51bf-4a9a-bc88-bd07b1cb470d.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f9fc68d3-ed6e-4a79-b211-9cc3bb9e7741.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/27dc3f5a-5c95-4e91-980e-5420209bea58.jpg",
+    ],
   },
   {
     id: 4,
