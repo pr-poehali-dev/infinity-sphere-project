@@ -30,7 +30,7 @@ export function CalcBanner() {
         backgroundPosition: "center",
       }}
     >
-      <div className="relative bg-black/50 p-5">
+      <div className="relative bg-black/50 p-5 py-0 px-[30px] my-0 mx-0">
         {/* Кнопка закрыть */}
         <button
           onClick={handleClose}
