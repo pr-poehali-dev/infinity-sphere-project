@@ -17,9 +17,15 @@ export function Hero() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
+          src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/b1eebfeb-1cd6-48e1-bd51-aa02dc6898a3.png"
+          alt="Кухни на заказ в Кемерово"
+          className="w-full h-full object-cover object-[70%_center] md:hidden"
+          loading="eager"
+        />
+        <img
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ca833cae-fc01-465b-a0ef-6a511b4d40d8.png"
           alt="Кухни на заказ в Кемерово"
-          className="w-full h-full object-cover object-[90%_center] sm:object-[70%_center] md:object-center"
+          className="w-full h-full object-cover object-center hidden md:block"
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/50" />
