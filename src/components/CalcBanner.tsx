@@ -42,7 +42,7 @@ export function CalcBanner() {
         {/* Картинка планшета */}
         <img
           src="https://master-mebel42.ru/wp-content/uploads/2023/04/tablet-kitch.png"
-          alt=""
+          alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово"
           className="w-28 mx-auto mb-3 drop-shadow-lg"
         />
 
