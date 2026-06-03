@@ -75,7 +75,14 @@ const projects: Project[] = [
     style: "Лофт",
     price: "от 355 000 ₽",
     days: "30 дней",
-    image: "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
+    images: [
+      "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/ff0ee8cf-d257-45a5-9042-54bdb1634fc7.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ef1c8ebb-9cf4-4c85-824a-76b28d72a97b.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f6d55a7b-43fc-48e6-b879-7bb149efd888.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/814e50a6-e361-4215-b6ee-1d64b3d3e335.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/2e3e1ea8-9def-464f-b4c8-b2549f0095e6.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/1166a461-3344-4819-8c68-496f0cfc3831.jpg",
+    ],
   },
   {
     id: 6,
