@@ -32,6 +32,26 @@ const faqs = [
     answer:
       "Оставьте заявку на сайте или позвоните нам. Свяжемся в течение 15 минут, обсудим проект и назначим бесплатный выезд на замер. После замера — получите готовую смету и 3D-визуализацию в течение 2 рабочих дней.",
   },
+  {
+    question: "В каких районах Кемерово вы работаете?",
+    answer:
+      "Мы изготавливаем и устанавливаем кухни на заказ во всех районах Кемерово: Центральный, Ленинский, Заводский, Кировский, Рудничный. Выезжаем на замер по всему городу и в пригород бесплатно.",
+  },
+  {
+    question: "Можно ли сделать кухню в рассрочку?",
+    answer:
+      "Да, мы предлагаем рассрочку и работаем с банками-партнёрами. Условия рассрочки обсуждаются индивидуально после расчёта стоимости. Также возможна поэтапная оплата по договору.",
+  },
+  {
+    question: "Делаете ли вы маленькие кухни для квартир-студий?",
+    answer:
+      "Конечно. Мы проектируем кухни любого размера — от компактных для студий и малогабаритных квартир до больших кухонь-гостиных. Для небольших помещений используем эргономичные решения и места для хранения по максимуму.",
+  },
+  {
+    question: "Что входит в стоимость кухни под ключ?",
+    answer:
+      "В стоимость кухни под ключ входит: корпус, фасады, столешница, фурнитура Blum/Hettich, доставка и монтаж в Кемерово. По желанию добавляем встроенную технику, мойку, смеситель и подсветку. Никаких скрытых доплат — всё фиксируется в договоре.",
+  },
 ]
 
 export function FAQ() {
@@ -41,8 +61,25 @@ export function FAQ() {
     setOpenIndex(openIndex === index ? null : index)
   }
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
   return (
     <section id="faq" className="py-20 md:py-29">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mb-16">
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Вопросы и ответы</p>
@@ -70,7 +107,7 @@ export function FAQ() {
               </button>
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  openIndex === index ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
                 <p className="leading-relaxed pb-6 pr-12 text-[#000000]">{faq.answer}</p>
