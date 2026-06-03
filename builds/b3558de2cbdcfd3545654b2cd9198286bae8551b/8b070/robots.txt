@@ -12,5 +12,3 @@ Allow: /
 
 User-agent: *
 Allow: /
-
-Sitemap: https://infinity-sphere-project.poehali.dev/sitemap.xml

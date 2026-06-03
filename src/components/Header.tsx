@@ -45,6 +45,7 @@ export function Header() {
             src="https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/61052267-e6c5-4719-949e-d25cac3ec242.png"
             alt="Мастерская современной мебели"
             className="h-[62px] sm:h-[78px] w-auto object-contain"
+            loading="eager"
           />
           <div className="flex flex-col leading-tight">
             <span className="text-white font-semibold text-[11px] sm:text-[13.5px] lg:text-[17.5px] uppercase tracking-wide">

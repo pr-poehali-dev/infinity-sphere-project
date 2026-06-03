@@ -9,6 +9,7 @@ export function Footer() {
                 src="https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/61052267-e6c5-4719-949e-d25cac3ec242.png"
                 alt="Мастерская современной мебели"
                 className="h-16 w-auto"
+                loading="lazy"
               />
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm">

@@ -66,6 +66,7 @@ export function Philosophy() {
                   src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/0cb2e1ac-ae81-407f-b437-1218443d02bc.png"
                   alt="До — пустое помещение"
                   className="w-full h-full object-cover aspect-square"
+                  loading="lazy"
                 />
                 <span className="absolute top-2 left-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded"></span>
               </div>
@@ -74,6 +75,7 @@ export function Philosophy() {
                   src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/789ddcd5-9f6c-47be-912a-71fb1f0d88fa.png"
                   alt="После — готовая кухня"
                   className="w-full h-full object-cover aspect-square"
+                  loading="lazy"
                 />
                 <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded"></span>
               </div>
