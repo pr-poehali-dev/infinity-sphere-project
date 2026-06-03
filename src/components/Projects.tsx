@@ -98,7 +98,13 @@ const projects: Project[] = [
     style: "Минимализм с островом",
     price: "под ключ",
     days: "от 30 дней",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/7bb2e738-f3c7-4824-9b91-0eeffd726645.png",
+    images: [
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/7bb2e738-f3c7-4824-9b91-0eeffd726645.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f41c9aec-c0a7-4da7-a9eb-66b57105fa5d.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/86041fa1-b2b4-4d54-9e91-0a7ac8244a27.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/9c7cb1f1-3aac-41db-9981-c9e5276d494c.jpg",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/3886d5f6-4f7d-4eb8-96ff-a5fcc1c02574.jpg",
+    ],
   },
   {
     id: 8,
