@@ -19,7 +19,7 @@ export function Hero() {
         <img
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ca833cae-fc01-465b-a0ef-6a511b4d40d8.png"
           alt="Кухни на заказ в Кемерово"
-          className="w-full h-full object-cover object-[40%_top] sm:object-[70%_center] md:object-center"
+          className="w-full h-full object-cover object-[85%_top] sm:object-[70%_center] md:object-center"
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/50" />
