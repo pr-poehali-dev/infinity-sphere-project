@@ -46,7 +46,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://max.ru/u/f9LHodD0cOL1PbwV-gcwhH0uDPPh7fYs6mEO6mT9skVfTgi3h9x92puP1aU"
+                  href="https://t.me/kuhniotproizvNOVOKUZNECK_bot"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
