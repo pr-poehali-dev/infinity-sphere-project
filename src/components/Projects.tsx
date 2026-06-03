@@ -201,13 +201,16 @@ function ProjectCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div ref={cardRef} className="relative overflow-hidden aspect-[4/3] mb-6">
+      <div
+        ref={cardRef}
+        className="relative overflow-hidden aspect-[4/3] mb-6 cursor-zoom-in"
+        onClick={() => images.length > 0 && setLightboxIndex(currentIndex)}
+      >
         {images.length > 0 ? (
           <img
             src={images[currentIndex]}
             alt={project.title}
-            className={`w-full h-full object-cover transition-transform duration-700 cursor-zoom-in ${hovered ? "scale-105" : "scale-100"}`}
-            onClick={() => setLightboxIndex(currentIndex)}
+            className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
           />
         ) : (
           <div className="w-full h-full bg-secondary flex flex-col items-center justify-center gap-3 border-2 border-dashed border-border">
@@ -216,13 +219,13 @@ function ProjectCard({
           </div>
         )}
         <div
-          className="absolute inset-0 bg-primary origin-top"
+          className="absolute inset-0 bg-primary origin-top pointer-events-none"
           style={{
             transform: revealed ? "scaleY(0)" : "scaleY(1)",
             transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
           }}
         />
-        <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="text-white">
             <p className="text-sm text-white/70 mb-1">{project.style}</p>
             <p className="text-lg font-medium">{project.price}</p>
