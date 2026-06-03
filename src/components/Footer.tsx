@@ -51,7 +51,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
-                  MAX
+                  Telegram
                 </a>
               </li>
               <li>
