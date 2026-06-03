@@ -110,7 +110,7 @@ const projects: Project[] = [
     id: 8,
     title: "ЖК Бульвар",
     style: "Современный минимализм",
-    price: "под ключ",
+    price: "от 390 000 ₽",
     days: "от 30 дней",
     images: [
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/9f89ab7d-44be-4af7-a5b8-3d89ea54f698.png",
