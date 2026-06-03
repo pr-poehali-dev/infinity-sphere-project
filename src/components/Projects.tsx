@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useRef, useCallback } from "react"
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 
 type Project = {
@@ -176,15 +176,7 @@ function Lightbox({ images, startIndex, onClose }: { images: string[]; startInde
   )
 }
 
-function ProjectCard({
-  project,
-  revealed,
-  cardRef,
-}: {
-  project: Project
-  revealed: boolean
-  cardRef: (el: HTMLDivElement | null) => void
-}) {
+function ProjectCard({ project }: { project: Project }) {
   const images = getImages(project)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [hovered, setHovered] = useState(false)
@@ -206,7 +198,6 @@ function ProjectCard({
       onMouseLeave={() => setHovered(false)}
     >
       <div
-        ref={cardRef}
         className="relative overflow-hidden aspect-[4/3] mb-6 cursor-zoom-in"
         onClick={() => images.length > 0 && setLightboxIndex(currentIndex)}
       >
@@ -222,13 +213,7 @@ function ProjectCard({
             <p className="text-muted-foreground text-sm">Фото скоро появится</p>
           </div>
         )}
-        <div
-          className="absolute inset-0 bg-primary origin-top pointer-events-none"
-          style={{
-            transform: revealed ? "scaleY(0)" : "scaleY(1)",
-            transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
-          }}
-        />
+
         <div className="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="text-white">
             <p className="text-sm text-white/70 mb-1">{project.style}</p>
@@ -284,30 +269,6 @@ function ProjectCard({
 }
 
 export function Projects() {
-  const [revealedImages, setRevealedImages] = useState<Set<number>>(new Set())
-  const imageRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = imageRefs.current.indexOf(entry.target as HTMLDivElement)
-            if (index !== -1) {
-              setRevealedImages((prev) => new Set(prev).add(projects[index].id))
-            }
-          }
-        })
-      },
-      { threshold: 0.2 },
-    )
-
-    imageRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
-
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <section id="projects" className="py-20 md:py-29 bg-secondary/50">
@@ -327,12 +288,10 @@ export function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
-              revealed={revealedImages.has(project.id)}
-              cardRef={(el) => { imageRefs.current[index] = el }}
             />
           ))}
         </div>
