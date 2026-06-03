@@ -96,7 +96,7 @@ const projects: Project[] = [
     id: 7,
     title: "Микрорайон Лесная поляна",
     style: "Минимализм с островом",
-    price: "под ключ",
+    price: "от 390 000 ₽",
     days: "от 30 дней",
     images: [
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/7bb2e738-f3c7-4824-9b91-0eeffd726645.png",
