@@ -38,6 +38,10 @@ const projects: Project[] = [
       "https://cdn.poehali.dev/projects/4b174f8a-7b40-422d-92f3-3d0d5ddcf97f/bucket/8c53bb01-c1d6-4050-a9d0-cbf968f02c17.png",
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/4d36750d-53b0-4c20-b3be-17fed01690a2.png",
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/72086471-819d-49b1-a7f2-7820552b5cde.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/95cbe8f0-6687-473c-ba29-f54d5b468225.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/b0065eb7-54b1-4e60-8a8c-03275ea56705.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/40eaeccb-6446-481c-bc78-f8878c65928c.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/c7197e55-4828-4d66-9819-7047ec9050b1.png",
     ],
   },
   {
