@@ -106,7 +106,7 @@ export function Expertise() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 border border-border px-8 tracking-widest uppercase hover:bg-secondary transition-colors duration-300 text-sm font-extrabold py-5 text-foreground"
           >
-            Получить концепцию в Telegram
+            Получить расчет в Telegram
           </a>
         </div>
       </div>
