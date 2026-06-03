@@ -26,7 +26,13 @@ const projects: Project[] = [
     style: "Современный минимализм",
     price: "380 000 ₽",
     days: "40 дней",
-    image: "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png",
+    images: [
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/70168c0b-2a3a-4b5d-8463-9b8dbc7cc330.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/1b615c40-995e-4e20-8c62-4a14cdf9b590.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/8576899d-188b-4c9b-a55c-b3c2a7adefbe.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/862d73be-fde9-4379-9858-b3057616e6f0.png",
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/25b8bfcc-450d-4fab-9a7f-cf0ac9570e1f.png",
+    ],
   },
   {
     id: 2,
