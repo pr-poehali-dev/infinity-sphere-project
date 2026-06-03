@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react"
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect, useRef, useCallback } from "react"
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 
 type Project = {
   id: number
@@ -92,6 +92,86 @@ function getImages(project: Project): string[] {
   return []
 }
 
+function Lightbox({ images, startIndex, onClose }: { images: string[]; startIndex: number; onClose: () => void }) {
+  const [index, setIndex] = useState(startIndex)
+  const touchStartX = useRef<number | null>(null)
+
+  const prev = useCallback(() => setIndex((i) => (i - 1 + images.length) % images.length), [images.length])
+  const next = useCallback(() => setIndex((i) => (i + 1) % images.length), [images.length])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev()
+      if (e.key === "ArrowRight") next()
+      if (e.key === "Escape") onClose()
+    }
+    window.addEventListener("keydown", onKey)
+    document.body.style.overflow = "hidden"
+    return () => {
+      window.removeEventListener("keydown", onKey)
+      document.body.style.overflow = ""
+    }
+  }, [prev, next, onClose])
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 50) { if (diff > 0) next(); else prev() }
+    touchStartX.current = null
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+      onClick={onClose}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white/70 hover:text-white z-10 p-2"
+      >
+        <X className="w-7 h-7" />
+      </button>
+
+      <button
+        onClick={(e) => { e.stopPropagation(); prev() }}
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/25 text-white rounded-full p-3 z-10"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+
+      <img
+        src={images[index]}
+        alt=""
+        className="max-h-[90vh] max-w-[92vw] object-contain select-none"
+        onClick={(e) => e.stopPropagation()}
+        draggable={false}
+      />
+
+      <button
+        onClick={(e) => { e.stopPropagation(); next() }}
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/25 text-white rounded-full p-3 z-10"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={(e) => { e.stopPropagation(); setIndex(i) }}
+            className={`w-2 h-2 rounded-full transition-all duration-200 ${i === index ? "bg-white scale-125" : "bg-white/40"}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function ProjectCard({
   project,
   revealed,
@@ -104,6 +184,7 @@ function ProjectCard({
   const images = getImages(project)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [hovered, setHovered] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -125,7 +206,8 @@ function ProjectCard({
           <img
             src={images[currentIndex]}
             alt={project.title}
-            className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
+            className={`w-full h-full object-cover transition-transform duration-700 cursor-zoom-in ${hovered ? "scale-105" : "scale-100"}`}
+            onClick={() => setLightboxIndex(currentIndex)}
           />
         ) : (
           <div className="w-full h-full bg-secondary flex flex-col items-center justify-center gap-3 border-2 border-dashed border-border">
@@ -182,6 +264,14 @@ function ProjectCard({
         </div>
         <span className="text-muted-foreground/60 text-sm">{project.days}</span>
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={images}
+          startIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </article>
   )
 }
