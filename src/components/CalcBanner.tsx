@@ -25,7 +25,7 @@ export function CalcBanner() {
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
       }`}
       style={{
-        backgroundImage: "url('https://master-mebel42.ru/wp-content/uploads/2022/10/calc-banner-bg-1.jpg')",
+        backgroundImage: "url('https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/banner/calc-banner-bg-1.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -41,8 +41,9 @@ export function CalcBanner() {
 
         {/* Картинка планшета */}
         <img
-          src="https://master-mebel42.ru/wp-content/uploads/2023/04/tablet-kitch.png"
+          src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/banner/tablet-kitch.png"
           alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово"
+          loading="lazy"
           className="w-28 mx-auto mb-3 drop-shadow-lg"
         />
 
