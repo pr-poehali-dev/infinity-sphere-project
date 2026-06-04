@@ -33,9 +33,8 @@ export function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 text-left md:text-center max-w-5xl py-20 sm:py-16 md:py-[66px]">
         <h1 className="text-white leading-[1.1] tracking-tight text-balance pt-10 pb-6 font-thin text-left md:text-center text-4xl sm:text-5xl md:text-6xl">Кухни на заказ в Кемерово.</h1>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8 text-white font-normal text-left md:text-center">
-          Проектируем, изготавливаем и монтируем кухни любой сложности. От эконома до премиум — с гарантией 3 года по договору.
-        </p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8 text-white font-normal text-left md:text-center">Проектируем, изготавливаем и монтируем кухни любой сложности. 
+От эконома до премиум — с гарантией 3 года по договору.</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-start md:justify-center mb-10">
           <button
