@@ -238,6 +238,7 @@ function ProjectCard({ project }: { project: Project }) {
           <img
             src={images[currentIndex]}
             alt={project.title}
+            loading="lazy"
             className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}
           />
         ) : (
