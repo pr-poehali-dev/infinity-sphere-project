@@ -18,13 +18,13 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/b1eebfeb-1cd6-48e1-bd51-aa02dc6898a3.png"
-          alt="Кухни на заказ в Кемерово"
+          alt="Кухни на заказ в Кемерово и Новокузнецке"
           className="w-full h-full object-cover object-[70%_center] md:hidden"
           loading="eager"
         />
         <img
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/ca833cae-fc01-465b-a0ef-6a511b4d40d8.png"
-          alt="Кухни на заказ в Кемерово"
+          alt="Кухни на заказ в Кемерово и Новокузнецке"
           className="w-full h-full object-cover object-center hidden md:block"
           loading="eager"
         />
@@ -32,7 +32,7 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 text-left md:text-center max-w-5xl py-20 sm:py-16 md:py-[66px]">
-        <h1 className="text-white leading-[1.1] tracking-tight text-balance pt-10 pb-6 font-thin text-left md:text-center text-4xl sm:text-5xl md:text-6xl">Кухни на заказ в Кемерово.</h1>
+        <h1 className="text-white leading-[1.1] tracking-tight text-balance pt-10 pb-6 font-thin text-left md:text-center text-4xl sm:text-5xl md:text-6xl">Кухни на заказ в Кемерово и Новокузнецке.</h1>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8 text-white font-normal text-left md:text-center">Проектируем, изготавливаем и монтируем кухни любой сложности. 
 От эконома до премиум — с гарантией 3 года по договору.</p>
 

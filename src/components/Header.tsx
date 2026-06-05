@@ -51,7 +51,7 @@ export function Header() {
             <span className="text-white font-semibold text-[11px] sm:text-[13.5px] lg:text-[17.5px] uppercase tracking-wide">
               Мастерская<br />Современной Мебели
             </span>
-            <span className="text-white/60 text-[10px] sm:text-[11px] lg:text-[13.5px] mt-0.5 tracking-wide">г. Кемерово</span>
+            <span className="text-white/60 text-[10px] sm:text-[11px] lg:text-[13.5px] mt-0.5 tracking-wide">Кемерово и Новокузнецк</span>
           </div>
         </a>
 

@@ -42,7 +42,7 @@ export function CalcBanner() {
         {/* Картинка планшета */}
         <img
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/banner/tablet-kitch.png"
-          alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово"
+          alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово и Новокузнецке"
           loading="lazy"
           className="w-28 mx-auto mb-3 drop-shadow-lg"
         />
