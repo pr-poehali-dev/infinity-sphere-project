@@ -3,7 +3,7 @@ import { HighlightedText } from "./HighlightedText"
 
 const packages = [
   {
-    name: "START",
+    name: "БЮДЖЕТНЫЙ",
     subtitle: "Для студий и аренды",
     description: "Быстрое и стильное кухонное оснащение. Всё необходимое для комфортного проживания или сдачи в аренду.",
     price: "от 180 000 ₽",
@@ -11,7 +11,7 @@ const packages = [
     featured: false,
   },
   {
-    name: "COMFORT",
+    name: "СТАНДАРТНЫЙ",
     subtitle: "Для семейных квартир",
     description: "Полноценная кухня с дизайн-проектом. Качественные материалы, удобное хранение, встроенная техника.",
     price: "от 280 000 ₽",
@@ -19,7 +19,7 @@ const packages = [
     featured: true,
   },
   {
-    name: "PREMIUM",
+    name: "ТОПОВЫЙ",
     subtitle: "Индивидуальный дизайн",
     description: "Авторские решения для тех, кто ценит детали. Уникальная кухня, премиальные материалы, полное сопровождение.",
     price: "от 600 000 ₽",
