@@ -52,7 +52,7 @@ export function Hero() {
         </div>
 
         <div className="grid grid-cols-2 justify-items-start md:flex md:flex-wrap md:justify-center gap-x-6 gap-y-2 md:gap-x-8 md:gap-y-3">
-          {["Собственное производство", "Фиксированная стоимость", "Замер бесплатно", "Эконом — Premium"].map((text) => (
+          {["Собственное производство", "Фиксированная стоимость", "Замер включён в проект", "Эконом — Premium"].map((text) => (
             <div key={text} className="flex items-center gap-2 text-white/70 text-xs sm:text-sm">
               <span className="text-[#ffa800]">✓</span>
               <span>{text}</span>

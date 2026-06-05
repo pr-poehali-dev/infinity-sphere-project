@@ -49,7 +49,7 @@ export function CalcBanner() {
 
         {/* Заголовок */}
         <h3 className="text-white font-bold text-center text-base leading-snug mb-1 uppercase">
-          Рассчитайте стоимость<br />кухни + получите подарок
+          Рассчитайте стоимость<br />вашей кухни за 2 минуты
         </h3>
 
         {/* Подпись */}

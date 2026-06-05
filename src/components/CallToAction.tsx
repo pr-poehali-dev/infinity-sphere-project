@@ -12,13 +12,13 @@ export function CallToAction() {
             <span className="text-stone-400">без стресса и лишних согласований</span>
           </h2>
           <p className="text-primary-foreground/60 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Оставьте заявку — свяжемся в течение 15 минут, ответим на вопросы и назначим бесплатный замер.
+            Оставьте заявку — свяжемся в течение 15 минут, ответим на вопросы и согласуем удобное время для замера.
           </p>
           <div className="max-w-xl mx-auto text-left">
             <LeadForm dark />
           </div>
           <p className="text-primary-foreground/40 text-xs text-center mt-4">
-            Бесплатная консультация · Выезд на замер · Без обязательств
+            Консультация специалиста · Выезд на замер · Точный расчёт стоимости
           </p>
         </div>
 
