@@ -53,9 +53,7 @@ export function Packages() {
               {pkg.featured && <div className="absolute top-0 left-0 right-0 h-0.5 bg-stone-400" />}
 
               <div className="mb-6">
-                <p className={`text-xs tracking-[0.4em] uppercase mb-2 ${pkg.featured ? "text-stone-400" : "text-muted-foreground"}`}>
-                  {pkg.subtitle}
-                </p>
+
                 <h3 className={`text-4xl font-medium tracking-tight ${pkg.featured ? "text-white" : "text-foreground"}`}>
                   {pkg.name}
                 </h3>
