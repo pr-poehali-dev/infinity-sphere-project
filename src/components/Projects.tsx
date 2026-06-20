@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef, useCallback, useEffect } from "react"
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 
 type Project = {
