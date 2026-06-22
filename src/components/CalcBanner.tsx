@@ -48,7 +48,7 @@ export function CalcBanner() {
         />
 
         {/* Заголовок */}
-        <h3 className="text-white font-bold text-xs leading-snug uppercase py-0 my-0 text-left">🔥Новинка 🔥
+        <h3 className="text-white font-bold text-xs leading-snug uppercase py-0 my-0 text-center">🔥Новинка 🔥
 Рассчитайте стоимость в  MAX</h3>
 
         {/* Подпись */}
@@ -59,7 +59,7 @@ export function CalcBanner() {
           href="#contact"
           onClick={handleClose}
           className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm font-medium px-4 rounded transition-colors w-full py-0"
-        >Рассчитайте стоимость в MAX</a>
+        >Начать расчет </a>
       </div>
     </div>
   )
