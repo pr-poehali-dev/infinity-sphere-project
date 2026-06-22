@@ -56,7 +56,9 @@ export function CalcBanner() {
 
         {/* Кнопка */}
         <a
-          href="#contact"
+          href="https://max.ru/id421714233013_bot"
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={handleClose}
           className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm px-4 rounded transition-colors w-full py-2.5 font-semibold"
         >Начать расчет </a>
