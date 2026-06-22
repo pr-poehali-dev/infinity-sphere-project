@@ -44,7 +44,7 @@ export function CalcBanner() {
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/03512dbb-d95e-40ac-8f9d-3a84bf7645ea.png"
           alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово и Новокузнецке"
           loading="lazy"
-          className="w-16 mx-auto mb-2 drop-shadow-lg"
+          className="w-10 md:w-12 mx-auto mb-2 drop-shadow-lg"
         />
 
         {/* Заголовок */}
