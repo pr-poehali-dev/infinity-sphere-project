@@ -50,6 +50,7 @@ export function Hero() {
             href="https://t.me/kuhniotproizvNOVOKUZNECK_bot"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => (window as { ym?: (id: number, goal: string, target: string) => void }).ym?.(109491748, 'reachGoal', 'telegram_calc_click')}
             className="inline-flex items-center justify-center gap-2 border border-white/40 px-6 sm:px-8 tracking-widest uppercase hover:bg-white/10 transition-colors duration-300 text-sm font-extrabold text-[#ffa800] py-4 sm:py-5"
           >Получить расчет в Telegram</a>
         </div>
