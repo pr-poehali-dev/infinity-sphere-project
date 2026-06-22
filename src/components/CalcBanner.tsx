@@ -21,7 +21,7 @@ export function CalcBanner() {
 
   return (
     <div
-      className={`fixed bottom-6 left-6 z-50 w-72 rounded-xl overflow-hidden shadow-2xl transition-all duration-400 ${
+      className={`fixed bottom-6 left-6 z-50 w-52 rounded-xl overflow-hidden shadow-2xl transition-all duration-400 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
       }`}
       style={{
@@ -30,7 +30,7 @@ export function CalcBanner() {
         backgroundPosition: "center",
       }}
     >
-      <div className="relative bg-black/50 p-5 py-0 px-[30px] my-0 mx-0">
+      <div className="relative bg-black/50 py-0 px-5 my-0 mx-0">
         {/* Кнопка закрыть */}
         <button
           onClick={handleClose}
@@ -44,11 +44,11 @@ export function CalcBanner() {
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/03512dbb-d95e-40ac-8f9d-3a84bf7645ea.png"
           alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово и Новокузнецке"
           loading="lazy"
-          className="w-28 mx-auto mb-3 drop-shadow-lg"
+          className="w-16 mx-auto mb-2 drop-shadow-lg"
         />
 
         {/* Заголовок */}
-        <h3 className="text-white font-bold text-center text-base leading-snug mb-1 uppercase">
+        <h3 className="text-white font-bold text-center text-xs leading-snug mb-1 uppercase">
           Рассчитайте стоимость<br />вашей кухни за 2 минуты
         </h3>
 
