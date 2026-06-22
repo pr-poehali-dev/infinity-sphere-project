@@ -39,9 +39,7 @@ export function Hero() {
           <button
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center gap-2 text-foreground px-6 sm:px-8 text-sm tracking-widest uppercase font-medium hover:bg-amber-500 transition-colors duration-300 py-4 sm:py-5 bg-[#ffa800]"
-          >
-            Рассчитать стоимость
-          </button>
+          >Получить ориентир по бюджету</button>
           <a
             href="https://t.me/kuhniotproizvNOVOKUZNECK_bot"
             target="_blank"

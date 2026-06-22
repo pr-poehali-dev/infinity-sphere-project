@@ -44,26 +44,22 @@ export function CalcBanner() {
           src="https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/03512dbb-d95e-40ac-8f9d-3a84bf7645ea.png"
           alt="Онлайн-калькулятор стоимости кухни на заказ в Кемерово и Новокузнецке"
           loading="lazy"
-          className="w-10 md:w-12 mx-auto mb-2 drop-shadow-lg"
+          className="w-10 md:w-12 mx-auto drop-shadow-lg py-0 my-0"
         />
 
         {/* Заголовок */}
-        <h3 className="text-white font-bold text-center text-xs leading-snug mb-1 uppercase">
-          Рассчитайте стоимость<br />вашей кухни за 2 минуты
-        </h3>
+        <h3 className="text-white font-bold text-xs leading-snug uppercase py-0 my-0 text-left">🔥Новинка 🔥
+Рассчитайте стоимость в  MAX</h3>
 
         {/* Подпись */}
-        <p className="text-white/70 text-xs text-center mb-4">Всего пару секунд!</p>
+        <p className="text-white/70 text-xs text-center mb-4">Всего пару минут!</p>
 
         {/* Кнопка */}
         <a
           href="#contact"
           onClick={handleClose}
-          className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm font-medium py-2.5 px-4 rounded transition-colors w-full"
-        >
-          Начать расчет
-          <span className="text-base">↗</span>
-        </a>
+          className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm font-medium px-4 rounded transition-colors w-full py-0"
+        >Рассчитайте стоимость в MAX</a>
       </div>
     </div>
   )
