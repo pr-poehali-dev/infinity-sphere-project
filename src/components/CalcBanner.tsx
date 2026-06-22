@@ -63,7 +63,7 @@ export function CalcBanner() {
           href="https://max.ru/id421714233013_bot"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={handleClose}
+          onClick={() => { handleClose(); (window as { ym?: (id: number, goal: string, target: string) => void }).ym?.(109491748, 'reachGoal', 'max_calc_click') }}
           className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm px-4 rounded transition-colors w-full py-2.5 font-semibold"
         >Начать расчет </a>
       </div>
