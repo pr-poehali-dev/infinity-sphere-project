@@ -58,7 +58,7 @@ export function CalcBanner() {
         <a
           href="#contact"
           onClick={handleClose}
-          className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm font-medium px-4 rounded transition-colors w-full py-0"
+          className="flex items-center justify-center gap-2 bg-[#ffa800] hover:bg-amber-500 text-foreground text-sm px-4 rounded transition-colors w-full py-2.5 font-semibold"
         >Начать расчет </a>
       </div>
     </div>
