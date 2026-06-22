@@ -7,14 +7,18 @@ export function CalcBanner() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!closed) setVisible(true)
-    }, 30000)
+      setVisible(true)
+    }, 12000)
     return () => clearTimeout(timer)
-  }, [closed])
+  }, [])
 
   const handleClose = () => {
     setVisible(false)
-    setTimeout(() => setClosed(true), 400)
+    setClosed(true)
+    setTimeout(() => {
+      setClosed(false)
+      setTimeout(() => setVisible(true), 13000)
+    }, 400)
   }
 
   if (closed) return null
