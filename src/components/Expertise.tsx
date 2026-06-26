@@ -101,12 +101,13 @@ export function Expertise() {
             Рассчитать стоимость
           </button>
           <a
-            href="https://t.me/kuhniotproizvNOVOKUZNECK_bot"
+            href="https://max.ru/id421714233013_bot"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => (window as { ym?: (id: number, goal: string, target: string) => void }).ym?.(109491748, 'reachGoal', 'max_calc_click')}
             className="inline-flex items-center justify-center gap-2 border border-border px-8 tracking-widest uppercase hover:bg-secondary transition-colors duration-300 text-sm font-extrabold py-5 text-foreground"
           >
-            Получить расчет в Telegram
+            Рассчитать в МАХ
           </a>
         </div>
       </div>
