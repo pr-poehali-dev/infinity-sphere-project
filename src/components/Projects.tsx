@@ -342,7 +342,7 @@ export function Projects() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 border border-border px-6 sm:px-8 tracking-widest uppercase hover:bg-secondary transition-colors duration-300 text-sm font-extrabold text-foreground py-4 sm:py-5"
-          >Рассчитать  стоимость </a>
+          >рассчитать в МАХ</a>
         </div>
       </div>
     </section>
