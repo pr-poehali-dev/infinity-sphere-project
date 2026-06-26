@@ -334,9 +334,7 @@ export function Projects() {
           <button
             onClick={() => window.dispatchEvent(new Event("open-lead-form"))}
             className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 sm:py-5 text-sm tracking-widest uppercase font-extrabold hover:opacity-90 transition-colors duration-300 bg-[#ffa800] text-foreground"
-          >
-            Рассчитать стоимость
-          </button>
+          >отправить заявку</button>
           <a
             href="https://t.me/kuhniotproizvNOVOKUZNECK_bot"
             target="_blank"
