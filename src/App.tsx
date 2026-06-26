@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Novokuznetsk from "./pages/Novokuznetsk";
 import Privacy from "./pages/Privacy";
 import Consent from "./pages/Consent";
 import Spasibo from "./pages/Spasibo";
@@ -21,7 +20,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/novokuznetsk" element={<Novokuznetsk />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/consent" element={<Consent />} />
           <Route path="/spasibo" element={<Spasibo />} />

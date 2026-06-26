@@ -23,8 +23,8 @@ export default function Index() {
 
   return (
     <main className="min-h-screen">
-      <Header city="kemerovo" />
-      <Hero city="kemerovo" />
+      <Header />
+      <Hero />
       <Philosophy />
       <Projects />
       <Expertise />
@@ -32,7 +32,7 @@ export default function Index() {
       <Process />
       <FAQ />
       <CallToAction />
-      <Footer city="kemerovo" />
+      <Footer />
       <CalcBanner />
       <button
         aria-label="Наверх"

@@ -1,8 +1,7 @@
 import { useState, useEffect, MouseEvent } from "react"
 import { cn } from "../lib/utils"
 
-export function Header({ city }: { city?: string }) {
-  const isNvk = city === "novokuznetsk"
+export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -55,17 +54,6 @@ export function Header({ city }: { city?: string }) {
             <span className="text-white/60 text-[10px] sm:text-[11px] lg:text-[13.5px] mt-0.5 tracking-wide">Кемерово и Новокузнецк</span>
           </div>
         </a>
-
-        <div className="hidden sm:flex items-center gap-1 ml-2 bg-white/10 rounded-lg p-1 shrink-0">
-          <a
-            href="/"
-            className={cn("text-[11px] px-3 py-1.5 rounded-md transition-all duration-200 font-medium", !isNvk ? "bg-white text-foreground" : "text-white/70 hover:text-white")}
-          >Кемерово</a>
-          <a
-            href="/novokuznetsk"
-            className={cn("text-[11px] px-3 py-1.5 rounded-md transition-all duration-200 font-medium", isNvk ? "bg-white text-foreground" : "text-white/70 hover:text-white")}
-          >Новокузнецк</a>
-        </div>
 
         <ul className="hidden lg:flex items-center gap-6 xl:gap-10 text-sm tracking-wide">
           {navLinks.map((item) => (
