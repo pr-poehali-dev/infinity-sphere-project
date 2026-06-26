@@ -62,6 +62,7 @@ const projects: Project[] = [
     price: "350 000 ₽",
     days: "30 дней",
     images: [
+      "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/6deb478b-726f-4a0f-846c-8b9fea7869f6.png",
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/f24dd6b0-c595-4642-b7c9-5f90ff666b1c.JPG",
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/2653d2c4-b81b-40ca-8ee8-12e5c4822b7f.JPG",
       "https://cdn.poehali.dev/projects/2eda4cc8-0def-4c23-8229-1f3dd04a0411/bucket/6be6115d-1fc0-4097-8a20-9173de476ab9.JPG",
