@@ -12,7 +12,7 @@ import { Footer } from "../components/Footer"
 import { CalcBanner } from "../components/CalcBanner"
 import Icon from "@/components/ui/icon"
 
-export default function Index() {
+export default function Novokuznetsk() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -23,16 +23,16 @@ export default function Index() {
 
   return (
     <main className="min-h-screen">
-      <Header city="kemerovo" />
-      <Hero city="kemerovo" />
+      <Header city="novokuznetsk" />
+      <Hero city="novokuznetsk" />
       <Philosophy />
       <Projects />
       <Expertise />
       <Packages />
       <Process />
       <FAQ />
-      <CallToAction />
-      <Footer city="kemerovo" />
+      <CallToAction city="novokuznetsk" />
+      <Footer city="novokuznetsk" />
       <CalcBanner />
       <button
         aria-label="Наверх"

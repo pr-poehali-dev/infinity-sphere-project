@@ -1,4 +1,6 @@
-export function Footer() {
+export function Footer({ city }: { city?: string }) {
+  const isNvk = city === "novokuznetsk"
+  const cityName = isNvk ? "Новокузнецке" : "Кемерово и Новокузнецке"
   return (
     <footer className="py-12 md:py-20 border-t border-border">
       <div className="container mx-auto px-4 md:px-12">
@@ -13,7 +15,7 @@ export function Footer() {
               />
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm">
-              Кухни на заказ в Кемерово и Новокузнецке. Проектируем, изготавливаем и монтируем — от замера до последней ручки на фасаде.
+              Кухни на заказ в {cityName}. Проектируем, изготавливаем и монтируем — от замера до последней ручки на фасаде.
             </p>
           </div>
 
@@ -71,8 +73,8 @@ export function Footer() {
         <div className="pt-8 border-t border-border mb-8">
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3 max-w-4xl">
             <p>
-              <strong className="text-foreground font-medium">Кухни на заказ в Кемерово и Новокузнецке</strong> от производителя —
-              изготавливаем и устанавливаем кухонные гарнитуры под ключ за 35 дней. Работаем во всех районах обоих городов.
+              <strong className="text-foreground font-medium">Кухни на заказ в {cityName}</strong> от производителя —
+              изготавливаем и устанавливаем кухонные гарнитуры под ключ за 35 дней. Работаем во всех районах {isNvk ? "города" : "обоих городов"}.
               Бесплатный замер, дизайн-проект с 3D-визуализацией и точный расчёт стоимости до начала работ.
             </p>
             <p>
@@ -85,7 +87,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>MSM — Кухни на заказ в Кемерово и Новокузнецке</p>
+          <p>MSM — Кухни на заказ в {cityName}</p>
           <div className="flex gap-6">
             <a href="/privacy" className="hover:text-foreground transition-colors">
               Политика конфиденциальности
