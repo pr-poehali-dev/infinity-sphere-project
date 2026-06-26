@@ -39,7 +39,7 @@ export function Hero() {
           <button
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center gap-2 text-foreground px-6 sm:px-8 text-sm tracking-widest uppercase font-medium hover:bg-amber-500 transition-colors duration-300 py-4 sm:py-5 bg-[#ffa800]"
-          >Получить ориентир по бюджету</button>
+          >отправить заявку</button>
           <a
             href="https://max.ru/id421714233013_bot"
             target="_blank"
