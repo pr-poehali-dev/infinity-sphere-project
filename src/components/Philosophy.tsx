@@ -83,10 +83,7 @@ export function Philosophy() {
           </div>
 
           <div className="space-y-6 lg:pt-48">
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
-              Мы работаем с жителями Кемерово и Новокузнецка, которые хотят красивую функциональную кухню — без бесконечных поездок
-              по магазинам и стресса с подрядчиками.
-            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">Мы работаем с жителями Новокузнецка, которые хотят красивую функциональную кухню  без бесконечных поездок по магазинам и стресса с подрядчиками.</p>
 
             {philosophyItems.map((item, index) => (
               <div
