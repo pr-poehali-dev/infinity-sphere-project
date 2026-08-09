@@ -313,7 +313,7 @@ export function Projects() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Реализованные проекты</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Наши кухни в Кемерово</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Наши кухни </h2>
           </div>
           <a
             href="#contact"
